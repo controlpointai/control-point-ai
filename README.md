@@ -94,4 +94,20 @@ Anchor line:
 
 Authority must remain valid at t + Δt.
 
+## Relationship to AI-1, AI-3, and AI-4
 
+Control Point AI builds progressively across earlier governance concepts:
+
+### AI-1
+
+Established foundational concerns around AI governance, authority definition, accountability, and operational trust in AI-enabled systems.
+
+### AI-3
+
+Expanded the discussion into runtime authority drift, changing operational conditions, and the distinction between static authorization and dynamic execution governance.
+
+### AI-4
+
+Extended the framework into operational risk ownership, evidentiary considerations, execution accountability, and governance continuity during real-world operational use.
+
+Control Point AI serves as an execution-focused integration layer connecting these concepts into reusable operational governance patterns.
