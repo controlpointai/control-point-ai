@@ -1,59 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 47" role="img" aria-labelledby="title">
   <title id="title">ControlPointAI logo</title>
-  <foreignObject width="42" height="47">
-    <div xmlns="http://www.w3.org/1999/xhtml" class="brand-mark" aria-hidden="true">
-      <style>
-        .brand-mark {
-          position: relative;
-          width: 42px;
-          height: 47px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #061426;
-          font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-          font-size: 20px;
-          font-weight: 900;
-          font-style: italic;
-          line-height: 1;
-          isolation: isolate;
-          gap: 0;
-        }
-
-        .brand-mark .mark-c,
-        .brand-mark .mark-p {
-          position: relative;
-          display: inline-block;
-        }
-
-        .brand-mark .mark-c {
-          transform: translate(4px, -3px);
-        }
-
-        .brand-mark .mark-p {
-          transform: translate(-2px, 1px);
-        }
-
-        .brand-mark::before,
-        .brand-mark::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          clip-path: polygon(50% 4%, 88% 16%, 83% 63%, 50% 94%, 17% 63%, 12% 16%);
-          z-index: -2;
-        }
-
-        .brand-mark::before {
-          background: #061426;
-        }
-
-        .brand-mark::after {
-          inset: 2px;
-          background: #fbfcfe;
-          z-index: -1;
-        }
-      </style>
-      <span class="mark-c">C</span><span class="mark-p">P</span>
-    </div>
-  </foreignObject>
+  <defs>
+    <clipPath id="shield">
+      <polygon points="21,1.88 36.96,7.52 34.86,29.61 21,44.18 7.14,29.61 5.04,7.52"/>
+    </clipPath>
+  </defs>
+  <rect width="42" height="47" fill="#fbfcfe"/>
+  <rect width="42" height="47" clip-path="url(#shield)" fill="#061426"/>
+  <svg x="2" y="2" width="38" height="43" viewBox="0 0 42 47">
+    <rect width="42" height="47" clip-path="url(#shield)" fill="#fbfcfe"/>
+  </svg>
+  <text x="16.2" y="27.7" fill="#061426" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="900" font-style="italic">C</text>
+  <text x="24.6" y="31.7" fill="#061426" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="900" font-style="italic">P</text>
 </svg>
