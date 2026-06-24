@@ -11,7 +11,7 @@ public_folder: "/assets/images/uploads"
 
 site_url: "https://controlpointai.org"
 display_url: "https://controlpointai.org"
-logo_url: "/assets/images/newsletter-authority-engineering.jpg"
+logo_url: "/assets/images/controlpointai-logo.svg"
 
 collections:
   - name: "insights"
