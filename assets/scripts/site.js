@@ -1,4 +1,4 @@
-const insightTracks = [
+const insightTracks = window.insightTracks || [
   {
     id: "ai1",
     order: 1,

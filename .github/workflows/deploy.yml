@@ -23,13 +23,19 @@ jobs:
           role-to-assume: arn:aws:iam::953199921486:role/controlpointai-role
           aws-region: us-east-2
 
+      - name: Build generated content
+        run: npm run build
+
       - name: Sync files to S3
         run: |
           aws s3 sync . s3://control-point-ai-bucket --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exclude ".gitignore" \
-            --exclude "README.md"
+            --exclude "README.md" \
+            --exclude "content/*" \
+            --exclude "scripts/*" \
+            --exclude "package.json"
 
       - name: Invalidate CloudFront
         run: |
