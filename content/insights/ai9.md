@@ -35,7 +35,7 @@ Modern AI-enabled environments increasingly involve: dynamic workflows, delegate
 
 The question increasingly becomes:
 
-“Who owns the risk under current operational conditions — not yesterday’s conditions?”
+“Who owns the risk under current operational conditions — not yesterday’s conditions”
 
 ## AI Governance Is Becoming an Execution-Flow Problem
 
@@ -147,7 +147,7 @@ Examples include:
 
 Under traditional governance models, these problems are often discovered after execution.
 
-Under a Control Point AI model, the work is prevented from executing before operational effects occur.
+Under a Control Point AIodel, the work is prevented from executing before operational effects occur.
 
 This means:
 

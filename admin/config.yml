@@ -23,6 +23,7 @@ collections:
     create: true
     slug: "{{fields.id}}"
     summary: "{{fields.label}} - {{title}}"
+    preview_path: "insights/post/index.html?issue={{fields.id}}"
     sortable_fields: ["order", "publish_date", "title", "topic"]
     fields:
       - { label: "Post ID", name: "id", widget: "string", hint: "Use a short unique ID, such as ai11. This becomes the article URL query value." }
