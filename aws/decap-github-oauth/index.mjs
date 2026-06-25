@@ -150,23 +150,34 @@ async function finishAuth(event) {
 }
 
 export async function handler(event) {
-  for (const name of requiredEnv) {
-    getEnv(name);
+  try {
+    const path = getPath(event).replace(/\/$/, "");
+
+    if (path.endsWith("/health")) {
+      return json({
+        ok: true,
+        path,
+        env: Object.fromEntries(requiredEnv.map((name) => [name, Boolean(process.env[name])])),
+      });
+    }
+
+    for (const name of requiredEnv) {
+      getEnv(name);
+    }
+
+    if (path.endsWith("/auth")) {
+      return startAuth(event);
+    }
+
+    if (path.endsWith("/callback")) {
+      return finishAuth(event);
+    }
+
+    return json({ error: "Not found", path }, 404);
+  } catch (error) {
+    return json({
+      error: "Lambda configuration error",
+      message: error instanceof Error ? error.message : String(error),
+    }, 500);
   }
-
-  const path = getPath(event).replace(/\/$/, "");
-
-  if (path.endsWith("/auth")) {
-    return startAuth(event);
-  }
-
-  if (path.endsWith("/callback")) {
-    return finishAuth(event);
-  }
-
-  if (path.endsWith("/health")) {
-    return json({ ok: true });
-  }
-
-  return json({ error: "Not found" }, 404);
 }
