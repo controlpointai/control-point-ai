@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # Rebuild hourly so future-dated Decap posts appear after their publish time.
+    - cron: "17 * * * *"
+  workflow_dispatch:
 
 permissions:
   id-token: write

@@ -3,6 +3,7 @@ id: "ai4"
 order: 4
 label: "Issue 4"
 title: "From Algorithms to Authority"
+publish_date: "2026-03-15T09:00:00-04:00"
 topic: "operations"
 image: "/assets/images/uploads/newsletter-ai4.jpg"
 summary: "Positions Authority Engineering as the bridge between AI capability, governance intent, and operational execution."

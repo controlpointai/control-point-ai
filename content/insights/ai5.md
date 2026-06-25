@@ -3,6 +3,7 @@ id: "ai5"
 order: 5
 label: "Issue 5"
 title: "When Authority Breaks at Machine Speed"
+publish_date: "2026-04-01T09:00:00-04:00"
 topic: "runtime"
 image: "/assets/images/uploads/newsletter-ai5.jpg"
 summary: "Presents the HCAI / Control Point AI framework as an execution-bound loop for defining, constraining, monitoring, auditing, and refining authority."

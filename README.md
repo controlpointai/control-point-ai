@@ -31,6 +31,14 @@ python -m http.server 4173 --bind 127.0.0.1
 
 Then visit `http://127.0.0.1:4173/`.
 
+## CMS Publishing
+
+Decap CMS manages newsletter posts in `content/insights` and case-study drafts in `content/case-studies`.
+
+Insight posts support an optional `publish_date` field. If the date is in the future, `scripts/build-insights-data.js` excludes that post from the public archive and article router until the scheduled time has passed. The GitHub Actions deploy workflow runs on every push and once per hour, so scheduled posts normally appear within the next hourly deploy after their publish time.
+
+Use the Decap editorial workflow for drafts and review. Use `publish_date` for posts that are approved but should not appear on the public site yet.
+
 ## Framework Notes
 
 ControlPointAI explores execution-bound authority for AI-enabled systems.

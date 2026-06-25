@@ -3,6 +3,7 @@ id: "ai8"
 order: 8
 label: "Issue 8"
 title: "The Control Point"
+publish_date: "2026-05-15T09:00:00-04:00"
 topic: "operations"
 image: "/assets/images/uploads/newsletter-ai8.jpg"
 summary: "Defines the control point as the moment where authority, governance, and system behavior must be checked before AI can act."

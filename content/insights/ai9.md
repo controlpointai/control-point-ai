@@ -3,6 +3,7 @@ id: "ai9"
 order: 9
 label: "Issue 9"
 title: "The Execution Authority Gap"
+publish_date: "2026-05-22T09:00:00-04:00"
 topic: "analysis"
 image: "/assets/images/uploads/newsletter-ai9.jpg"
 summary: "The key reference for Data Flow Mapping: explains how AI-generated work can propagate through connected systems before authority is validated."

@@ -9,6 +9,7 @@ window.insightTracks = [
     "topic": "runtime",
     "url": "insights/post/index.html?issue=ai1",
     "image": "/assets/images/uploads/newsletter-ai1.jpg",
+    "publishDate": "2026-02-01T14:00:00.000Z",
     "summary": "Introduces the central ControlPointAI concern: AI can move quickly, but consequential work still depends on valid authority at the point of execution.",
     "sections": [
       {
@@ -25,6 +26,7 @@ window.insightTracks = [
     "topic": "operations",
     "url": "insights/post/index.html?issue=ai2",
     "image": "/assets/images/uploads/newsletter-ai2.jpg",
+    "publishDate": "2026-02-13T14:00:00.000Z",
     "summary": "Frames the gap between technology, governance, and operations when AI-assisted work accelerates beyond traditional review cycles.",
     "sections": [
       {
@@ -41,6 +43,7 @@ window.insightTracks = [
     "topic": "analysis",
     "url": "insights/post/index.html?issue=ai3",
     "image": "/assets/images/uploads/newsletter-ai3.jpg",
+    "publishDate": "2026-03-01T14:00:00.000Z",
     "summary": "Explores why governance has to account for delegation, consequence boundaries, accountability chains, revocation, and override.",
     "sections": [
       {
@@ -57,6 +60,7 @@ window.insightTracks = [
     "topic": "operations",
     "url": "insights/post/index.html?issue=ai4",
     "image": "/assets/images/uploads/newsletter-ai4.jpg",
+    "publishDate": "2026-03-15T13:00:00.000Z",
     "summary": "Positions Authority Engineering as the bridge between AI capability, governance intent, and operational execution.",
     "sections": [
       {
@@ -73,6 +77,7 @@ window.insightTracks = [
     "topic": "runtime",
     "url": "insights/post/index.html?issue=ai5",
     "image": "/assets/images/uploads/newsletter-ai5.jpg",
+    "publishDate": "2026-04-01T13:00:00.000Z",
     "summary": "Presents the HCAI / Control Point AI framework as an execution-bound loop for defining, constraining, monitoring, auditing, and refining authority.",
     "sections": [
       {
@@ -89,6 +94,7 @@ window.insightTracks = [
     "topic": "runtime",
     "url": "insights/post/index.html?issue=ai6",
     "image": "/assets/images/uploads/newsletter-ai6.jpg",
+    "publishDate": "2026-04-15T13:00:00.000Z",
     "summary": "Shows how a defined authority model can still fail when invalid authority is allowed to execute without a live control point.",
     "sections": [
       {
@@ -105,6 +111,7 @@ window.insightTracks = [
     "topic": "runtime",
     "url": "insights/post/index.html?issue=ai7",
     "image": "/assets/images/uploads/newsletter-ai7.jpg",
+    "publishDate": "2026-05-01T13:00:00.000Z",
     "summary": "Maps the Control Point AI idea across model outputs, agents, governance layers, policy, dashboards, and audit evidence.",
     "sections": [
       {
@@ -121,6 +128,7 @@ window.insightTracks = [
     "topic": "operations",
     "url": "insights/post/index.html?issue=ai8",
     "image": "/assets/images/uploads/newsletter-ai8.jpg",
+    "publishDate": "2026-05-15T13:00:00.000Z",
     "summary": "Defines the control point as the moment where authority, governance, and system behavior must be checked before AI can act.",
     "sections": [
       {
@@ -137,6 +145,7 @@ window.insightTracks = [
     "topic": "analysis",
     "url": "insights/post/index.html?issue=ai9",
     "image": "/assets/images/uploads/newsletter-ai9.jpg",
+    "publishDate": "2026-05-22T13:00:00.000Z",
     "summary": "The key reference for Data Flow Mapping: explains how AI-generated work can propagate through connected systems before authority is validated.",
     "sections": [
       {
@@ -153,6 +162,7 @@ window.insightTracks = [
     "topic": "analysis",
     "url": "insights/post/index.html?issue=aics1",
     "image": "/assets/images/uploads/newsletter-aics1.jpg",
+    "publishDate": "2026-06-10T13:00:00.000Z",
     "summary": "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis.",
     "sections": [
       {
@@ -169,6 +179,7 @@ window.insightTracks = [
     "topic": "interface",
     "url": "insights/post/index.html?issue=ai10",
     "image": "/assets/images/uploads/newsletter-ai10.jpg",
+    "publishDate": "2026-06-01T13:00:00.000Z",
     "summary": "A reflective issue on what ControlPointAI observed while watching AI systems move from early exploration toward governance and product reality.",
     "sections": [
       {

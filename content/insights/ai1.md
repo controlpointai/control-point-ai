@@ -3,6 +3,7 @@ id: "ai1"
 order: 1
 label: "Issue 1"
 title: "Why Faster AI Doesn't Matter If Authority Is Still Slow"
+publish_date: "2026-02-01T09:00:00-05:00"
 topic: "runtime"
 image: "/assets/images/uploads/newsletter-ai1.jpg"
 summary: "Introduces the central ControlPointAI concern: AI can move quickly, but consequential work still depends on valid authority at the point of execution."

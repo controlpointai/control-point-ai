@@ -23,12 +23,13 @@ collections:
     create: true
     slug: "{{fields.id}}"
     summary: "{{fields.label}} - {{title}}"
-    sortable_fields: ["order", "title", "topic"]
+    sortable_fields: ["order", "publish_date", "title", "topic"]
     fields:
       - { label: "Post ID", name: "id", widget: "string", hint: "Use a short unique ID, such as ai11. This becomes the article URL query value." }
       - { label: "Order", name: "order", widget: "number", value_type: "int", min: 1, hint: "Use the issue number. The archive sorts newest first by default." }
       - { label: "Label", name: "label", widget: "string", default: "Issue 11" }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "publish_date", widget: "datetime", required: false, hint: "Optional. Future-dated posts stay hidden until a scheduled deploy runs after this time." }
       - label: "Topic"
         name: "topic"
         widget: "select"

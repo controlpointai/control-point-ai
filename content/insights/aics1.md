@@ -3,6 +3,7 @@ id: "aics1"
 order: 9.5
 label: "Case Study 001"
 title: "Unauthorized Concept Drift During AI Analysis"
+publish_date: "2026-06-10T09:00:00-04:00"
 topic: "analysis"
 image: "/assets/images/uploads/newsletter-aics1.jpg"
 summary: "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis."

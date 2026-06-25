@@ -3,6 +3,7 @@ id: "ai6"
 order: 6
 label: "Issue 6"
 title: "Authority Gap at Execution"
+publish_date: "2026-04-15T09:00:00-04:00"
 topic: "runtime"
 image: "/assets/images/uploads/newsletter-ai6.jpg"
 summary: "Shows how a defined authority model can still fail when invalid authority is allowed to execute without a live control point."

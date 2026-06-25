@@ -3,6 +3,7 @@ id: "ai2"
 order: 2
 label: "Issue 2"
 title: "When AI Moves Faster"
+publish_date: "2026-02-13T09:00:00-05:00"
 topic: "operations"
 image: "/assets/images/uploads/newsletter-ai2.jpg"
 summary: "Frames the gap between technology, governance, and operations when AI-assisted work accelerates beyond traditional review cycles."

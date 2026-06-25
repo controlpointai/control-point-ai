@@ -3,6 +3,7 @@ id: "ai3"
 order: 3
 label: "Issue 3"
 title: "Technology Is Moving Faster Than Authority"
+publish_date: "2026-03-01T09:00:00-05:00"
 topic: "analysis"
 image: "/assets/images/uploads/newsletter-ai3.jpg"
 summary: "Explores why governance has to account for delegation, consequence boundaries, accountability chains, revocation, and override."

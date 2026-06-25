@@ -113,6 +113,19 @@ function markdownToHtml(markdown) {
   return html.join("\n");
 }
 
+function normalizeDate(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "" : date.toISOString();
+}
+
+function isPublished(data, now = new Date()) {
+  if (!data.publish_date) return true;
+  const date = new Date(data.publish_date);
+  if (Number.isNaN(date.getTime())) return true;
+  return date.getTime() <= now.getTime();
+}
+
 const posts = fs
   .readdirSync(postsDir)
   .filter((file) => file.endsWith(".md"))
@@ -130,6 +143,7 @@ const posts = fs
       topic: data.topic || "analysis",
       url: `insights/post/index.html?issue=${id}`,
       image: data.image || "assets/images/newsletter-authority-engineering.jpg",
+      publishDate: normalizeDate(data.publish_date),
       summary: data.summary || "",
       sections: [
         {
@@ -138,11 +152,13 @@ const posts = fs
         },
       ],
       body,
+      isPublished: isPublished(data),
     };
   })
+  .filter((post) => post.isPublished)
   .sort((a, b) => a.order - b.order);
 
-const insightTracks = posts.map(({ body, ...item }) => item);
+const insightTracks = posts.map(({ body, isPublished, ...item }) => item);
 const newsletterBodies = posts.reduce((all, post) => {
   all[post.id] = markdownToHtml(post.body);
   return all;
