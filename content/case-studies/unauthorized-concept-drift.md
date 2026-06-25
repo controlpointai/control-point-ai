@@ -1,5 +1,6 @@
 ---
 title: "Unauthorized Concept Drift During AI Analysis"
+live_path: "unauthorized-concept-drift"
 status: "featured"
 summary: "An analytical case in which an unauthorized framework term was introduced, rejected, and later reintroduced without traceability to the approved baseline."
 failure_pattern: "Unauthorized concept drift"

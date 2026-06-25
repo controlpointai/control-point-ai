@@ -1,5 +1,6 @@
 ---
 title: "Context Disruption Following User Interface Intervention"
+live_path: "context-disruption-ui-intervention"
 status: "featured"
 summary: "An observation report showing how a system-generated interface prompt disrupted conversational continuity and caused loss of shared attention."
 failure_pattern: "Interface-induced context loss"

@@ -49,8 +49,10 @@ collections:
     create: true
     slug: "{{slug}}"
     summary: "{{title}}"
+    preview_path: "case-studies/{{fields.live_path}}/index.html"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Live Page Path", name: "live_path", widget: "string", required: false, hint: "Public URL folder under /case-studies/. Existing examples: runtime-authority-enforcement, unauthorized-concept-drift, context-disruption-ui-intervention." }
       - label: "Status"
         name: "status"
         widget: "select"

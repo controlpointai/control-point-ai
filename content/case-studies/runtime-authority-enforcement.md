@@ -1,5 +1,6 @@
 ---
 title: "Runtime Authority Enforcement in Naval Nuclear Maintenance"
+live_path: "runtime-authority-enforcement"
 status: "featured"
 summary: "A naval availability scenario showing how AI assistance must remain bounded before it influences planning, material control, execution, testing, or final release."
 failure_pattern: "Operational authority drift"
