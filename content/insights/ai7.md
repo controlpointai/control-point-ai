@@ -4,7 +4,7 @@ order: 7
 label: "Issue 7"
 title: "Closing the Authority Gap at the Point of Execution"
 topic: "runtime"
-image: "assets/images/newsletter-ai7.jpg"
+image: "/assets/images/uploads/newsletter-ai7.jpg"
 summary: "Maps the Control Point AI idea across model outputs, agents, governance layers, policy, dashboards, and audit evidence."
 ---
 ## Editor's Note

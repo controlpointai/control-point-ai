@@ -4,7 +4,7 @@ order: 4
 label: "Issue 4"
 title: "From Algorithms to Authority"
 topic: "operations"
-image: "assets/images/newsletter-ai4.jpg"
+image: "/assets/images/uploads/newsletter-ai4.jpg"
 summary: "Positions Authority Engineering as the bridge between AI capability, governance intent, and operational execution."
 ---
 Artificialintelligenceisrapidlymovingfromlaboratoryexperimentation into real-world operational systems. Governments are beginning to build regulatory frameworks such as the European Union Artificial Intelligence Act, while defense organizations are integrating AI into systems designed to respond to emerging threats like drone swarms. As AI systems move closerto operational decision making ininfrastructure, defense, and financial systems, the central challenge is no longer simply building capable algorithms. The real challenge is designing governance and authority structures that allow humans and AI systems to operate together safely inside complex institutions.

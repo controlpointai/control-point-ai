@@ -37,7 +37,7 @@ collections:
           - { label: "Operations", value: "operations" }
           - { label: "Analysis", value: "analysis" }
           - { label: "Interface", value: "interface" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false, default: "assets/images/newsletter-authority-engineering.jpg" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, default: "/assets/images/uploads/newsletter-authority-engineering.jpg" }
       - { label: "Summary", name: "summary", widget: "text", hint: "Buyer-facing archive summary. Keep this concise." }
       - { label: "Body", name: "body", widget: "markdown" }
 

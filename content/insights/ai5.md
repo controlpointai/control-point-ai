@@ -4,7 +4,7 @@ order: 5
 label: "Issue 5"
 title: "When Authority Breaks at Machine Speed"
 topic: "runtime"
-image: "assets/images/newsletter-ai5.jpg"
+image: "/assets/images/uploads/newsletter-ai5.jpg"
 summary: "Presents the HCAI / Control Point AI framework as an execution-bound loop for defining, constraining, monitoring, auditing, and refining authority."
 ---
 AI systems are now operating at speeds and in environments where traditional governance structures can no longerkeeppace. Across defense, public safety, and emerging AI-enabled operations, the gap between system capability and institutional control is widening not because authority is undefined, butbecauseitis not enforced atthepoint ofexecution. In this issue, we examine three converging developments: the shift from policy-based governance to execution bound authority, the movement of battlefieldcapabilitiesintocivilianandpartnerenvironments, and the growing mismatch between operational tempo and organizational decision making. When systems act at machine speed, authority is no longer a background condition. It becomes the decisive factor in whether control is maintained - or quietly lost.

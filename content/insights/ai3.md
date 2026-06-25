@@ -4,7 +4,7 @@ order: 3
 label: "Issue 3"
 title: "Technology Is Moving Faster Than Authority"
 topic: "analysis"
-image: "assets/images/newsletter-ai3.jpg"
+image: "/assets/images/uploads/newsletter-ai3.jpg"
 summary: "Explores why governance has to account for delegation, consequence boundaries, accountability chains, revocation, and override."
 ---
 Over the past several issues, a consistent pattern has emerged. AI capability is acceleratingâ€”faster models, faster sensing, faster deployment cycles. But the real constraint is no longer technical performance. It is authority alignment. As AI systems scale into operational environments, thelimitingfactor becomes structural: who is authorized to decide, under what conditions, and with what accountability. Thisissuereflectsadirectionalclarification. Thesignalswe'vebeen tracking â€” autonomy boundaries, production pressure, delegation mechanics, audit-clean governance â€”are not isolated observations. They point toward a deeper structural reality. Authority design is becoming the decisive variable. So before moving forward, we are formalizing the mission and vision behind this work.

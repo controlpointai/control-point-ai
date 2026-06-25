@@ -4,7 +4,7 @@ order: 2
 label: "Issue 2"
 title: "When AI Moves Faster"
 topic: "operations"
-image: "assets/images/newsletter-ai2.jpg"
+image: "/assets/images/uploads/newsletter-ai2.jpg"
 summary: "Frames the gap between technology, governance, and operations when AI-assisted work accelerates beyond traditional review cycles."
 ---
 Technology Is Moving Faster Than Authority Much oftoday's AI discussioncentersonspeedâ€”fastersensors, faster models, faster deployment. But as unmanned systems scale and AI integration accelerates, thelimitingfactorisno longertechnical capability. It is the alignment between signal velocity and decision authority. This issue examines three connected developments: the industrial-scale expansionofdroneprocurement, therapidpushtofield AI agentsacross between detection speed and authorization structures. Together, they point to a structural reality: authority designis becoming the decisive variablein AI-enabled environments.

@@ -29,14 +29,38 @@ function parseFrontMatter(raw, filePath) {
   return { data, body };
 }
 
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function inlineMarkdown(value) {
+  return escapeHTML(value)
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
 function markdownToHtml(markdown) {
   const html = [];
   let paragraph = [];
+  let list = [];
 
   function flushParagraph() {
     if (!paragraph.length) return;
-    html.push(`<p>${paragraph.join(" ")}</p>`);
+    html.push(`<p>${inlineMarkdown(paragraph.join(" "))}</p>`);
     paragraph = [];
+  }
+
+  function flushList() {
+    if (!list.length) return;
+    html.push(`<ul>${list.map((item) => `<li>${inlineMarkdown(item)}</li>`).join("")}</ul>`);
+    list = [];
   }
 
   markdown.split(/\r?\n/).forEach((line) => {
@@ -44,18 +68,40 @@ function markdownToHtml(markdown) {
 
     if (!trimmed) {
       flushParagraph();
+      flushList();
       return;
     }
 
     if (trimmed.startsWith("## ")) {
       flushParagraph();
-      html.push(`<h2>${trimmed.slice(3)}</h2>`);
+      flushList();
+      html.push(`<h2>${inlineMarkdown(trimmed.slice(3))}</h2>`);
       return;
     }
 
     if (trimmed.startsWith("### ")) {
       flushParagraph();
-      html.push(`<h3>${trimmed.slice(4)}</h3>`);
+      flushList();
+      html.push(`<h3>${inlineMarkdown(trimmed.slice(4))}</h3>`);
+      return;
+    }
+
+    if (/^[-*•]\s+/.test(trimmed)) {
+      flushParagraph();
+      list.push(trimmed.replace(/^[-*•]\s+/, ""));
+      return;
+    }
+
+    if (/^\d+\.\s+/.test(trimmed)) {
+      flushParagraph();
+      list.push(trimmed.replace(/^\d+\.\s+/, ""));
+      return;
+    }
+
+    if (trimmed.startsWith("> ")) {
+      flushParagraph();
+      flushList();
+      html.push(`<blockquote>${inlineMarkdown(trimmed.slice(2))}</blockquote>`);
       return;
     }
 
@@ -63,6 +109,7 @@ function markdownToHtml(markdown) {
   });
 
   flushParagraph();
+  flushList();
   return html.join("\n");
 }
 

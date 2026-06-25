@@ -4,7 +4,7 @@ order: 9.5
 label: "Case Study 001"
 title: "Unauthorized Concept Drift During AI Analysis"
 topic: "analysis"
-image: "assets/images/newsletter-aics1.jpg"
+image: "/assets/images/uploads/newsletter-aics1.jpg"
 summary: "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis."
 ---
 Areal-worldexample ofgovernance drift occurring within an AI analytical process.

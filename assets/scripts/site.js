@@ -328,6 +328,12 @@ function rootPrefix() {
   return "../".repeat(Number(depth));
 }
 
+function assetPath(path) {
+  if (!path) return "";
+  if (/^(https?:)?\/\//.test(path) || path.startsWith("/")) return path;
+  return `${rootPrefix()}${path}`;
+}
+
 function escapeHTML(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -351,17 +357,7 @@ function renderNewsletterBody(item) {
       )
       .join("");
   }
-  return body
-    .split(/\n{2,}/)
-    .map((block) => block.trim())
-    .filter(Boolean)
-    .map((block) => {
-      if (block.startsWith("## ")) {
-        return `<section><h2>${escapeHTML(block.slice(3))}</h2></section>`;
-      }
-      return `<p>${escapeHTML(block)}</p>`;
-    })
-    .join("");
+  return body;
 }
 
 function markActiveNav() {
@@ -387,7 +383,7 @@ function renderNewsletterArchive(filter = activeArchiveFilter, sort = activeArch
     .map(
       (item) => `
         <article class="card">
-          <img class="card-media" src="${prefix}${item.image}" alt="">
+          <img class="card-media" src="${assetPath(item.image)}" alt="">
           <span class="badge">${item.label}</span>
           <h3>${item.title}</h3>
           <p>${item.summary}</p>
@@ -425,7 +421,7 @@ function renderInsightPost() {
       <p class="eyebrow">${item.label}</p>
       <h1>${item.title}</h1>
       <p class="lead">${item.summary}</p>
-      <img class="article-hero-image" src="${prefix}${item.image}" alt="">
+      <img class="article-hero-image" src="${assetPath(item.image)}" alt="">
       ${renderNewsletterBody(item)}
       <div class="quote-callout">ControlPointAI principle: map where AI-generated work moves, then place Control Points before operational effects propagate.</div>
       <div class="case-nav">

@@ -4,7 +4,7 @@ order: 6
 label: "Issue 6"
 title: "Authority Gap at Execution"
 topic: "runtime"
-image: "assets/images/newsletter-ai6.jpg"
+image: "/assets/images/uploads/newsletter-ai6.jpg"
 summary: "Shows how a defined authority model can still fail when invalid authority is allowed to execute without a live control point."
 ---
 ## Editor's Note
