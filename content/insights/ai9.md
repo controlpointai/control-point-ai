@@ -35,7 +35,7 @@ Modern AI-enabled environments increasingly involve: dynamic workflows, delegate
 
 The question increasingly becomes:
 
-“Who owns the risk under current operational conditions — not yesterday’s conditions”
+“Who owns the risk under current operational conditions — not yesterday’s conditions?”
 
 ## AI Governance Is Becoming an Execution-Flow Problem
 
@@ -95,7 +95,7 @@ These control points validate:
 
 before operational effects are allowed to propagate.
 
-Core Principle:
+### Core Principle
 
 “If an AI can act, it must pass a control point before it does.”
 
@@ -131,7 +131,7 @@ Before execution, each action passes through a control point.
 
 If a job order is invalid at the moment of execution, the action is blocked.
 
-Examples include:
+### Examples include
 
 • overspent job orders
 
@@ -147,9 +147,9 @@ Examples include:
 
 Under traditional governance models, these problems are often discovered after execution.
 
-Under a Control Point AIodel, the work is prevented from executing before operational effects occur.
+Under a Control Point AI model, the work is prevented from executing before operational effects occur.
 
-This means:
+### This means
 
 • no labor is charged
 
