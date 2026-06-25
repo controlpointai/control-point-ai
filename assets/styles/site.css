@@ -1289,8 +1289,20 @@ img {
 }
 
 .article h2 {
-  margin-top: 34px;
+  margin: 38px 0 12px;
   color: var(--navy);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.14;
+  letter-spacing: 0;
+}
+
+.article h3 {
+  margin: 28px 0 10px;
+  padding-left: 14px;
+  border-left: 4px solid var(--teal);
+  color: var(--navy);
+  font-size: 20px;
+  line-height: 1.25;
 }
 
 .article-hero-image {
@@ -1304,6 +1316,25 @@ img {
 .article p,
 .article li {
   color: #334155;
+  font-size: 18px;
+  line-height: 1.72;
+  overflow-wrap: break-word;
+}
+
+.article p {
+  margin: 0 0 18px;
+}
+
+.article ul,
+.article ol {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 22px;
+  padding-left: 24px;
+}
+
+.article li {
+  padding-left: 2px;
 }
 
 .sidebar {
