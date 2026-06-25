@@ -2,6 +2,8 @@ backend:
   name: github
   repo: controlpointai/control-point-ai
   branch: main
+  base_url: https://ix3npuhheyrpipt5dyr4va7vgq0ttlnf.lambda-url.us-east-2.on.aws
+  auth_endpoint: auth
 
 local_backend: true
 
