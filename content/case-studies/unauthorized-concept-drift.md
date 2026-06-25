@@ -5,6 +5,11 @@ status: "featured"
 summary: "An analytical case in which an unauthorized framework term was introduced, rejected, and later reintroduced without traceability to the approved baseline."
 failure_pattern: "Unauthorized concept drift"
 mapping_focus: "Map where new terms, assumptions, or framework concepts enter analysis and where they require source authority or rejection controls."
+key_principles:
+  - "Approved vocabulary is a governance baseline."
+  - "New terms need source authority."
+  - "Rejected concepts require persistence controls."
+  - "Analytical workflows can drift before deployment."
 ---
 
 This case documents an analytical governance failure: a new concept was introduced by AI, challenged, rejected, and then reintroduced later as if it remained part of the approved framework.

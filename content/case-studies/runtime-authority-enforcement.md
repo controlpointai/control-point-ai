@@ -5,6 +5,12 @@ status: "featured"
 summary: "A naval availability scenario showing how AI assistance must remain bounded before it influences planning, material control, execution, testing, or final release."
 failure_pattern: "Operational authority drift"
 mapping_focus: "Map AI influence points across work identification, package development, routing, procurement, execution, testing, and final release."
+key_principles:
+  - "AI can inform; humans must authorize."
+  - "Authority must be validated phase by phase."
+  - "Changing conditions can invalidate prior approvals."
+  - "Commercial optimization is not operational acceptability."
+  - "Final release authority remains accountable and human."
 ---
 
 A hypothetical nuclear valve impeller replacement during naval availability shows why high-consequence AI governance must operate at runtime, across multiple authority chains, rather than only at initial system review.

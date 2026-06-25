@@ -64,4 +64,10 @@ collections:
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "Failure Pattern", name: "failure_pattern", widget: "string", required: false }
       - { label: "What ControlPointAI Would Map", name: "mapping_focus", widget: "text", required: false }
+      - label: "Key Principles"
+        name: "key_principles"
+        widget: "list"
+        required: false
+        hint: "Bullets for the Key Principles sidebar on the public case-study page."
+        field: { label: "Principle", name: "principle", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }

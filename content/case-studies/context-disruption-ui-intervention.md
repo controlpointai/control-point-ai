@@ -5,6 +5,11 @@ status: "featured"
 summary: "An observation report showing how a system-generated interface prompt disrupted conversational continuity and caused loss of shared attention."
 failure_pattern: "Interface-induced context loss"
 mapping_focus: "Map interface interventions, context handoffs, user-intent anchors, and hidden control points inside human-AI interaction flows."
+key_principles:
+  - "The interface is part of the governance surface."
+  - "Shared attention must be preserved."
+  - "Context recovery requires traceable anchors."
+  - "Experience degradation can occur without model failure."
 ---
 
 A system-generated "Choose Which Version" prompt interrupted a reflective conversation and shifted the system away from the user's intended reference point, creating a context-continuity failure rather than a factual error.
