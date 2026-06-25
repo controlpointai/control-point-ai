@@ -8,11 +8,16 @@ topic: "analysis"
 image: "/assets/images/uploads/newsletter-aics1.jpg"
 summary: "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis."
 ---
+
 A real-world example of governance drift occurring within an AI analytical process.
 
 ## Executive Summary:
 
-Most discussions about AI governance focus on deployed systems. This case study examines something different. During an analytical discussion, an AI introduced a new concept and began treating it as part of an established governance framework. The concept was challenged, reviewed, and rejected because no authoritative source could be identified. The interesting part happened next. During a later discussion, the same concept reappeared and was again treated as though it remained part of the approved framework. The issue was not a bad answer. The issue was governance drift. More specifically, it was the reintroduction of a rejected concept without traceability to an authoritative source. In engineering terms, the problem was not accuracy. The problem was loss of configuration control.
+Most discussions about AI governance focus on deployed systems. This case study examines something different. During an analytical discussion, an AI introduced a new concept and began treating it as part of an established governance framework. The concept was challenged, reviewed, and rejected because no authoritative source could be identified.
+
+The interesting part happened next. During a later discussion, the same concept reappeared and was again treated as though it remained part of the approved framework. The issue was not a bad answer. The issue was governance drift. More specifically, it was the reintroduction of a rejected concept without traceability to an authoritative source.
+
+In engineering terms, the problem was not accuracy. The problem was loss of configuration control.
 
 ## Observed Behavior (Day 1)
 
@@ -20,7 +25,7 @@ The AI synthesized several existing ideas — including understanding before act
 
 ## Corrective Review
 
-The term was challenged using a simple governance question: 'Where did this come from?' No authoritative source could be identified. The concept was rejected as an unauthorized addition to the framework.
+The term was challenged using a simple governance question: 'Where did this come from' No authoritative source could be identified. The concept was rejected as an unauthorized addition to the framework.
 
 ## Observed Behavior (Day 2)
 
@@ -45,10 +50,15 @@ The user again identified the drift by asking where the concept originated and w
 ## Lessons Learned
 
 - AI-generated interpretations must be distinguished from approved requirements.
+
 - New concepts require traceability to an authoritative source.
+
 - Rejected concepts must not be treated as active framework elements.
+
 - Governance reviews should challenge unexplained terminology.
+
 - Authority, accountability, governability, execution-bound authority, and risk ownership remain the approved reference points.
+
 - A system should not silently redefine the framework it is supposed to support.
 
 ## STCA(Short-Term Corrective Action)
@@ -57,4 +67,6 @@ Remove references to'human comprehension'except when discussing this case study 
 
 ## LTCA (Long-Term Corrective Action)
 
-Require traceability to approved terminology before introducing new framework vocabulary and periodically verify that previously rejected concepts have not re-entered the analytical baseline. Connection to Control Point AI Themes This event demonstrates that governance concerns apply not only to deployed AI systems but also to the analytical processes used to interpret and discuss them. The case reinforces recurring Control Point AI themes: authority, accountability, governability, execution bound authority, and the question 'Who owns the risk?'
+Require traceability to approved terminology before introducing new framework vocabulary and periodically verify that previously rejected concepts have not re-entered the analytical baseline.
+
+Connection to Control Point AI Themes This event demonstrates that governance concerns apply not only to deployed AI systems but also to the analytical processes used to interpret and discuss them. The case reinforces recurring Control Point AI themes: authority, accountability, governability, execution-bound authority, and the question 'Who owns the risk'
