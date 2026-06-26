@@ -498,6 +498,13 @@ function wireContactForm() {
 
       if (!response.ok) throw new Error("Form submission failed");
 
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "Contact",
+          event_label: payload.concern || "Website inquiry",
+        });
+      }
+
       form.reset();
       note.textContent = "Thank you. Your note has been sent to ControlPointAI.";
     } catch (error) {
