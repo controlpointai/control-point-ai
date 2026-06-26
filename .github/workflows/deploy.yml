@@ -30,69 +30,50 @@ jobs:
       - name: Build generated content
         run: npm run build
 
-      - name: Install clean URL rewrite function
-        run: |
-          set -euo pipefail
-
-          FUNCTION_NAME="controlpointai-clean-urls"
-          DISTRIBUTION_ID="E3BX9NW5W3KZEA"
-          FUNCTION_CONFIG="$(mktemp)"
-          DIST_RESPONSE="$(mktemp)"
-          DIST_CONFIG="$(mktemp)"
-          UPDATED_CONFIG="$(mktemp)"
-
-          cat > "$FUNCTION_CONFIG" <<'JSON'
-          {
-            "Comment": "Rewrite clean directory URLs to index.html for the ControlPointAI static site.",
-            "Runtime": "cloudfront-js-2.0"
-          }
-          JSON
-
-          if aws cloudfront describe-function --name "$FUNCTION_NAME" --stage DEVELOPMENT >/dev/null 2>&1; then
-            FUNCTION_ETAG="$(aws cloudfront describe-function --name "$FUNCTION_NAME" --stage DEVELOPMENT --query ETag --output text)"
-            aws cloudfront update-function \
-              --name "$FUNCTION_NAME" \
-              --if-match "$FUNCTION_ETAG" \
-              --function-config "file://$FUNCTION_CONFIG" \
-              --function-code fileb://cloudfront/clean-urls.js >/dev/null
-          else
-            aws cloudfront create-function \
-              --name "$FUNCTION_NAME" \
-              --function-config "file://$FUNCTION_CONFIG" \
-              --function-code fileb://cloudfront/clean-urls.js >/dev/null
-          fi
-
-          FUNCTION_ETAG="$(aws cloudfront describe-function --name "$FUNCTION_NAME" --stage DEVELOPMENT --query ETag --output text)"
-          FUNCTION_ARN="$(aws cloudfront publish-function --name "$FUNCTION_NAME" --if-match "$FUNCTION_ETAG" --query FunctionSummary.FunctionMetadata.FunctionARN --output text)"
-
-          aws cloudfront get-distribution-config --id "$DISTRIBUTION_ID" > "$DIST_RESPONSE"
-          DIST_ETAG="$(jq -r '.ETag' "$DIST_RESPONSE")"
-          jq '.DistributionConfig' "$DIST_RESPONSE" > "$DIST_CONFIG"
-          jq --arg function_arn "$FUNCTION_ARN" '
-            .DefaultCacheBehavior.FunctionAssociations.Items =
-              ((.DefaultCacheBehavior.FunctionAssociations.Items // [])
-              | map(select(.EventType != "viewer-request"))
-              + [{"EventType": "viewer-request", "FunctionARN": $function_arn}])
-            | .DefaultCacheBehavior.FunctionAssociations.Quantity =
-              (.DefaultCacheBehavior.FunctionAssociations.Items | length)
-          ' "$DIST_CONFIG" > "$UPDATED_CONFIG"
-
-          aws cloudfront update-distribution \
-            --id "$DISTRIBUTION_ID" \
-            --if-match "$DIST_ETAG" \
-            --distribution-config "file://$UPDATED_CONFIG" >/dev/null
-
       - name: Sync files to S3
         run: |
           aws s3 sync . s3://control-point-ai-bucket --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
-            --exclude "cloudfront/*" \
             --exclude ".gitignore" \
             --exclude "README.md" \
             --exclude "content/*" \
             --exclude "scripts/*" \
             --exclude "package.json"
+
+      - name: Publish directory index objects
+        run: |
+          set -euo pipefail
+
+          BUCKET="control-point-ai-bucket"
+          pages=(
+            "admin"
+            "case-studies"
+            "case-studies/context-disruption-ui-intervention"
+            "case-studies/runtime-authority-enforcement"
+            "case-studies/unauthorized-concept-drift"
+            "contact"
+            "demo"
+            "insights"
+            "insights/post"
+            "mission"
+            "services"
+          )
+
+          for page in "${pages[@]}"; do
+            aws s3api put-object \
+              --bucket "$BUCKET" \
+              --key "$page/" \
+              --body "$page/index.html" \
+              --content-type "text/html; charset=utf-8" \
+              --cache-control "public, max-age=0, must-revalidate" >/dev/null
+            aws s3api put-object \
+              --bucket "$BUCKET" \
+              --key "$page" \
+              --body "$page/index.html" \
+              --content-type "text/html; charset=utf-8" \
+              --cache-control "public, max-age=0, must-revalidate" >/dev/null
+          done
 
       - name: Invalidate CloudFront
         run: |
