@@ -19,11 +19,19 @@ function parseFrontMatter(raw, filePath) {
   const body = raw.slice(end + 4).trim();
   const data = {};
 
+  let currentKey = "";
+
   frontMatter.split(/\r?\n/).forEach((line) => {
+    if (/^\s+/.test(line) && currentKey) {
+      data[currentKey] = `${data[currentKey]} ${line.trim()}`.trim();
+      return;
+    }
+
     const match = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
     if (!match) return;
     const [, key, value] = match;
     data[key] = value.replace(/^"|"$/g, "");
+    currentKey = key;
   });
 
   return { data, body };
