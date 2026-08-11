@@ -370,6 +370,36 @@ function markActiveNav() {
   });
 }
 
+function wireMobileNav() {
+  const shell = document.querySelector(".nav-shell");
+  const nav = document.querySelector(".site-nav");
+  if (!shell || !nav || shell.querySelector(".nav-toggle")) return;
+
+  const toggle = document.createElement("button");
+  toggle.className = "nav-toggle";
+  toggle.type = "button";
+  if (!nav.id) nav.id = "primary-navigation";
+  toggle.setAttribute("aria-controls", nav.id);
+  toggle.setAttribute("aria-label", "Open navigation menu");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.innerHTML = "<span></span><span></span><span></span>";
+  shell.insertBefore(toggle, nav);
+  document.body.classList.add("mobile-nav-ready");
+
+  toggle.addEventListener("click", () => {
+    const isOpen = document.body.classList.toggle("nav-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+  });
+
+  nav.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
+  });
+}
+
 function renderNewsletterArchive(filter = activeArchiveFilter, sort = activeArchiveSort) {
   const host = document.querySelector("[data-newsletter-archive]");
   if (!host) return;
@@ -515,6 +545,7 @@ function wireContactForm() {
   });
 }
 
+wireMobileNav();
 markActiveNav();
 renderNewsletterArchive();
 renderInsightPost();
