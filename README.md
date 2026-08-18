@@ -41,7 +41,7 @@ Use the Decap editorial workflow for drafts and review. Use `publish_date` for p
 
 Case studies include a `key_principles` list for the sidebar bullets. Case-study pages that have generated markers are rebuilt from `content/case-studies` during `npm run build`, then uploaded by the GitHub Actions deploy workflow. Case Study 1 is currently wired to this build path.
 
-Case studies are now content-driven. A Decap publish to `main` rebuilds each Markdown file in `content/case-studies`, regenerates its public page under `case-studies/<live_path>/`, refreshes the Case Studies index, uploads the generated files, and waits for the CloudFront invalidation to finish before the deployment is marked successful. Once the GitHub Actions deploy run is green, the public site should reflect the change; if a browser tab still shows the old copy, force-refresh the tab.
+Case studies are now content-driven. A Decap publish to `main` rebuilds each Markdown file in `content/case-studies`, regenerates its public page under `case-studies/<live_path>/`, refreshes the Case Studies index, uploads the generated files, requests a CloudFront invalidation, and holds the deployment briefly for propagation. Once the GitHub Actions deploy run is green, the public site should reflect the change; if a browser tab still shows the old copy, force-refresh the tab.
 
 For the PDF-style report look:
 
