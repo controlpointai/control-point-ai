@@ -2,9 +2,20 @@
 title: "Context Disruption Following User Interface Intervention"
 live_path: "context-disruption-ui-intervention"
 status: "featured"
+order: 3
+layout: article
+eyebrow: "Human-AI Interaction Governance"
+badge_variant: "red"
+card_image: "/assets/images/newsletter-authority-engineering.jpg"
+meta_title: "Human-AI Interface Governance Case Study | ControlPointAI"
+meta_description: "A case study on human-AI interface governance, context continuity, human oversight, and hidden controls in high-consequence AI workflows."
 summary: "An observation report showing how a system-generated interface prompt disrupted conversational continuity and caused loss of shared attention."
 failure_pattern: "Interface-induced context loss"
 mapping_focus: "Map interface interventions, context handoffs, user-intent anchors, and hidden control points inside human-AI interaction flows."
+themes:
+  - "Shared attention"
+  - "Interface governance"
+  - "No model failure required"
 key_principles:
   - "The interface is part of the governance surface."
   - "Shared attention must be preserved."
@@ -52,7 +63,7 @@ The interruption produced an effect disproportionate to its apparent significanc
 
 The most significant observation is that the interface itself became an actor within the conversation. The prompt modified conversational state without explicitly preserving current conversational anchor, user intent, reference object, interaction mood, or discussion trajectory.
 
-The interface exercised influence over the conversation while remaining largely invisible in subsequent reasoning.
+> The interface exercised influence over the conversation while remaining largely invisible in subsequent reasoning.
 
 ## User Interface Governance
 

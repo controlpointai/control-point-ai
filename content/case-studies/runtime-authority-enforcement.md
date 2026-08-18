@@ -2,10 +2,26 @@
 title: "RX Maintenance Case Study"
 live_path: runtime-authority-enforcement
 status: featured
+order: 1
+layout: report
+eyebrow: "Operational Governance"
+badge_variant: ""
+card_image: "/assets/images/newsletter-control-point-authority.jpg"
+meta_title: "RX Maintenance Case Study | ControlPointAI"
+meta_description: "A public-source and synthetic case study on runtime authority, evidence, and configuration control in a high-consequence naval maintenance scenario."
 summary: Runtime authority, evidence, and configuration control in a high-consequence naval maintenance scenario.
 failure_pattern: Runtime authority, evidence, and configuration drift
 mapping_focus: Map data flow, authority flow, execution gates, evidence requirements, configuration state, declared paths, as-executed paths, and recovery actions across the maintenance decision lifecycle.
-pdf_path: "../../assets/documents/controlpointai-rx-maintenance-case-study.pdf"
+pdf_path: "/assets/documents/controlpointai-rx-maintenance-case-study.pdf"
+report_label: "RX Maintenance Case Study"
+document_status: "Reissued August 2026"
+document_notice: "Public-source / synthetic case study"
+classification_heading: "Public-Source / Synthetic Case Study"
+classification_note: "Fictional case data for AI-assisted engineering governance demonstration."
+themes:
+  - Runtime authority
+  - Evidence traceability
+  - Configuration control
 key_principles:
   - AI can inform; humans must authorize.
   - Evidence must show that the boundary held during execution.

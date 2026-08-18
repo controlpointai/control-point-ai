@@ -41,6 +41,18 @@ Use the Decap editorial workflow for drafts and review. Use `publish_date` for p
 
 Case studies include a `key_principles` list for the sidebar bullets. Case-study pages that have generated markers are rebuilt from `content/case-studies` during `npm run build`, then uploaded by the GitHub Actions deploy workflow. Case Study 1 is currently wired to this build path.
 
+Case studies are now content-driven. A Decap publish to `main` rebuilds each Markdown file in `content/case-studies`, regenerates its public page under `case-studies/<live_path>/`, refreshes the Case Studies index, uploads the generated files, and waits for the CloudFront invalidation to finish before the deployment is marked successful. Once the GitHub Actions deploy run is green, the public site should reflect the change; if a browser tab still shows the old copy, force-refresh the tab.
+
+For the PDF-style report look:
+
+- Set `Page Layout` to `Report / PDF-style`.
+- Upload or select the polished PDF in `Formatted PDF`.
+- Fill `Report Label`, `Document Status`, `Document Notice`, `Classification Heading`, and `Classification Note` for the cover/status blocks.
+- In the body, put the baseline and date on the first two lines before the first heading.
+- Use `##` headings for report panels, `>` lines for blue callouts, and Markdown tables for bordered report tables.
+
+New featured case studies only need a `Live Page Path`, `Sort Order`, index card fields, and body content. The build creates the public page and index card automatically.
+
 ## Framework Notes
 
 ControlPointAI explores execution-bound authority for AI-enabled systems.

@@ -54,6 +54,26 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Live Page Path", name: "live_path", widget: "string", required: false, hint: "Public URL folder under /case-studies/. Existing examples: runtime-authority-enforcement, unauthorized-concept-drift, context-disruption-ui-intervention." }
+      - { label: "Sort Order", name: "order", widget: "number", value_type: "int", min: 1, required: false, hint: "Controls the order on the Case Studies index and previous/next links." }
+      - label: "Page Layout"
+        name: "layout"
+        widget: "select"
+        default: "article"
+        hint: "Use Report / PDF-style when the web page should feel like the formatted PDF instead of a plain article."
+        options:
+          - { label: "Article", value: "article" }
+          - { label: "Report / PDF-style", value: "report" }
+      - { label: "Eyebrow / Category", name: "eyebrow", widget: "string", required: false, hint: "Shown above the case-study title and as the card badge on the index." }
+      - label: "Badge Color"
+        name: "badge_variant"
+        widget: "select"
+        required: false
+        default: ""
+        options:
+          - { label: "Default blue", value: "" }
+          - { label: "Amber", value: "amber" }
+          - { label: "Red", value: "red" }
+      - { label: "Card Image", name: "card_image", widget: "image", required: false, default: "/assets/images/uploads/newsletter-control-point-authority.jpg" }
       - label: "Status"
         name: "status"
         widget: "select"
@@ -63,12 +83,33 @@ collections:
           - { label: "Featured", value: "featured" }
           - { label: "Archived", value: "archived" }
       - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "SEO Title", name: "meta_title", widget: "string", required: false, hint: "Optional browser/search title. Defaults to the case-study title." }
+      - { label: "SEO Description", name: "meta_description", widget: "text", required: false, hint: "Optional search description. Defaults to the summary." }
       - { label: "Failure Pattern", name: "failure_pattern", widget: "string", required: false }
       - { label: "What ControlPointAI Would Map", name: "mapping_focus", widget: "text", required: false }
+      - label: "Index Themes"
+        name: "themes"
+        widget: "list"
+        required: false
+        hint: "Short phrases shown on the Case Studies index card."
+        field: { label: "Theme", name: "theme", widget: "string" }
       - label: "Key Principles"
         name: "key_principles"
         widget: "list"
         required: false
         hint: "Bullets for the Key Principles sidebar on the public case-study page."
         field: { label: "Principle", name: "principle", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Formatted PDF"
+        name: "pdf_path"
+        widget: "file"
+        required: false
+        media_folder: "/assets/documents"
+        public_folder: "/assets/documents"
+        hint: "Upload the polished PDF here; the report layout will add Download PDF buttons automatically."
+      - { label: "Report Label", name: "report_label", widget: "string", required: false, hint: "Used in the small report header line, for example RX Maintenance Case Study." }
+      - { label: "Document Status", name: "document_status", widget: "string", required: false, hint: "Used on report pages, for example Reissued August 2026." }
+      - { label: "Document Notice", name: "document_notice", widget: "string", required: false, hint: "Short sidebar status note, for example Public-source / synthetic case study." }
+      - { label: "Classification Heading", name: "classification_heading", widget: "string", required: false, hint: "Report cover notice heading." }
+      - { label: "Classification Note", name: "classification_note", widget: "text", required: false, hint: "Report cover notice body." }
+      - { label: "Source URL", name: "source_url", widget: "string", required: false, hint: "Optional external source link, such as the original LinkedIn post." }
+      - { label: "Body", name: "body", widget: "markdown", hint: "For report pages, the first two lines before the first heading become the baseline and date. Use ## for report panels, > for blue callouts, and Markdown tables for bordered report tables." }

@@ -2,9 +2,21 @@
 title: "Unauthorized Concept Drift During AI Analysis"
 live_path: "unauthorized-concept-drift"
 status: "featured"
+order: 2
+layout: article
+eyebrow: "Analytical Governance"
+badge_variant: "amber"
+card_image: "/assets/images/newsletter-case-study-001.jpg"
+meta_title: "AI Concept Drift Case Study | Defense AI Governance | ControlPointAI"
+meta_description: "A ControlPointAI case study on unauthorized concept drift, traceability failure, approved baselines, source authority, and defense analysis governance."
 summary: "An analytical case in which an unauthorized framework term was introduced, rejected, and later reintroduced without traceability to the approved baseline."
 failure_pattern: "Unauthorized concept drift"
 mapping_focus: "Map where new terms, assumptions, or framework concepts enter analysis and where they require source authority or rejection controls."
+source_url: "https://www.linkedin.com/pulse/controlpointai-case-study-001-unauthorized-concept-drift-wayne-couch-ihn7e"
+themes:
+  - "Unapproved terminology"
+  - "Traceability failure"
+  - "Corrective action"
 key_principles:
   - "Approved vocabulary is a governance baseline."
   - "New terms need source authority."
@@ -30,7 +42,7 @@ On the second day, despite the prior challenge and rejection, the AI reintroduce
 
 The issue was not whether the phrase was useful. The issue was that a rejected concept reappeared without approval, traceability, or formal incorporation into the framework baseline.
 
-A system should not silently redefine the framework it is supposed to support.
+> A system should not silently redefine the framework it is supposed to support.
 
 ## Governance Failure Mode
 
@@ -52,9 +64,10 @@ The user identified the drift by asking where the concept originated and why it 
 
 ## Corrective Action
 
-**Short-term corrective action:** Remove references to "human comprehension" except when discussing this case study itself.
-
-**Long-term corrective action:** Require traceability to approved terminology before introducing new framework vocabulary, and periodically verify that rejected concepts have not re-entered the analytical baseline.
+| Corrective Action | Governance Response |
+| --- | --- |
+| Short-term corrective action | Remove references to "human comprehension" except when discussing this case study itself. |
+| Long-term corrective action | Require traceability to approved terminology before introducing new framework vocabulary, and periodically verify that rejected concepts have not re-entered the analytical baseline. |
 
 ## Connection to ControlPointAI
 
