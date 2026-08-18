@@ -85,6 +85,7 @@ function markdownToHtml(markdown) {
   let paragraph = [];
   let list = [];
   let table = [];
+  let sectionOpen = false;
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -106,7 +107,12 @@ function markdownToHtml(markdown) {
         '<table class="article-table">',
         `  <thead><tr>${head.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join("")}</tr></thead>`,
         "  <tbody>",
-        ...body.map((row) => `    <tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join("")}</tr>`),
+        ...body.map(
+          (row) =>
+            `    <tr>${row
+              .map((cell, index) => `<td data-label="${escapeHTML(head[index] || "")}">${inlineMarkdown(cell)}</td>`)
+              .join("")}</tr>`
+        ),
         "  </tbody>",
         "</table>",
       ].join("\n")
@@ -125,6 +131,24 @@ function markdownToHtml(markdown) {
     if (cells.length < 2) return null;
     if (cells.every((cell) => /^:?-{3,}:?$/.test(cell))) return [];
     return cells;
+  }
+
+  function sectionClass(heading) {
+    if (/^Public-Source \/ Synthetic Case Study$/i.test(heading)) {
+      return "case-report-section case-report-notice";
+    }
+
+    if (/^Document Basis$/i.test(heading)) {
+      return "case-report-section case-report-basis";
+    }
+
+    return "case-report-section";
+  }
+
+  function closeSection() {
+    if (!sectionOpen) return;
+    html.push("</section>");
+    sectionOpen = false;
   }
 
   markdown.split(/\r?\n/).forEach((line) => {
@@ -149,7 +173,11 @@ function markdownToHtml(markdown) {
       flushParagraph();
       flushList();
       flushTable();
-      html.push(`<h2>${inlineMarkdown(trimmed.slice(3))}</h2>`);
+      closeSection();
+      const heading = trimmed.slice(3);
+      html.push(`<section class="${sectionClass(heading)}">`);
+      html.push(`<h2>${inlineMarkdown(heading)}</h2>`);
+      sectionOpen = true;
       return;
     }
 
@@ -183,7 +211,29 @@ function markdownToHtml(markdown) {
   flushParagraph();
   flushList();
   flushTable();
+  closeSection();
   return html.join("\n");
+}
+
+function splitPreface(body) {
+  const lines = body.split(/\r?\n/);
+  const firstSectionIndex = lines.findIndex((line) => line.trim().startsWith("## "));
+
+  if (firstSectionIndex === -1) {
+    return { preface: body.trim(), mainBody: "" };
+  }
+
+  return {
+    preface: lines.slice(0, firstSectionIndex).join("\n").trim(),
+    mainBody: lines.slice(firstSectionIndex).join("\n").trim(),
+  };
+}
+
+function prefaceLines(preface) {
+  return preface
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
 }
 
 function replaceGeneratedBlock(html, name, replacement) {
@@ -202,12 +252,27 @@ function replaceGeneratedBlock(html, name, replacement) {
 function renderArticle(data, body, eyebrow) {
   const title = data.title || "Case Study";
   const lead = data.summary || "";
+  const { preface, mainBody } = splitPreface(body);
+  const [baseline = "", issueDate = ""] = prefaceLines(preface);
+  const pdfPath = data.pdf_path || "";
   return [
-    `        <p class="eyebrow">${inlineMarkdown(eyebrow)}</p>`,
-    `        <h1>${inlineMarkdown(title)}</h1>`,
-    `        <p class="lead">${inlineMarkdown(lead)}</p>`,
+    '        <section class="case-report-cover">',
+    '          <div class="case-report-docline">ControlPointAI&trade; | RX Maintenance Case Study | Reissued August 2026</div>',
+    `          <p class="eyebrow">${inlineMarkdown(eyebrow)}</p>`,
+    `          <h1>${inlineMarkdown(title)}</h1>`,
+    `          <p class="case-report-subtitle">${inlineMarkdown(lead)}</p>`,
+    baseline ? `          <p class="case-report-baseline">${inlineMarkdown(baseline)}</p>` : "",
+    issueDate ? `          <p class="case-report-date">${inlineMarkdown(issueDate)}</p>` : "",
+    '          <div class="case-report-classification">',
+    "            <strong>Public-Source / Synthetic Case Study</strong>",
+    "            <span>Fictional case data for AI-assisted engineering governance demonstration.</span>",
+    "          </div>",
+    pdfPath
+      ? `          <a class="button ghost case-report-download" href="${escapeHTML(pdfPath)}">Download formatted PDF</a>`
+      : "",
+    "        </section>",
     "",
-    markdownToHtml(body)
+    markdownToHtml(mainBody)
       .split("\n")
       .map((line) => `        ${line}`)
       .join("\n"),
@@ -216,7 +281,14 @@ function renderArticle(data, body, eyebrow) {
 
 function renderSidebar(data) {
   const principles = Array.isArray(data.key_principles) ? data.key_principles : [];
+  const pdfPath = data.pdf_path || "";
   return [
+    '        <div class="case-report-sidebar-card">',
+    "          <span>Document Status</span>",
+    "          <strong>Reissued August 2026</strong>",
+    "          <p>Public-source / synthetic case study</p>",
+    pdfPath ? `          <a class="button primary" href="${escapeHTML(pdfPath)}">Download PDF</a>` : "",
+    "        </div>",
     "        <h2>Key Principles</h2>",
     "        <ul>",
     ...principles.map((principle) => `          <li>${inlineMarkdown(principle)}</li>`),

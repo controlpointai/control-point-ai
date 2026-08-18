@@ -10,4 +10,4 @@ desktop.ini
 node_modules/
 dist/
 build/
-
+tmp/

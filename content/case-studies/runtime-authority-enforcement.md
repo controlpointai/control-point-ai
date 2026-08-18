@@ -5,6 +5,7 @@ status: featured
 summary: Runtime authority, evidence, and configuration control in a high-consequence naval maintenance scenario.
 failure_pattern: Runtime authority, evidence, and configuration drift
 mapping_focus: Map data flow, authority flow, execution gates, evidence requirements, configuration state, declared paths, as-executed paths, and recovery actions across the maintenance decision lifecycle.
+pdf_path: "../../assets/documents/controlpointai-rx-maintenance-case-study.pdf"
 key_principles:
   - AI can inform; humans must authorize.
   - Evidence must show that the boundary held during execution.
