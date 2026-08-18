@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-insights-data.js"
+    "build": "node scripts/build-insights-data.js && node scripts/build-case-study-pages.js"
   }
 }

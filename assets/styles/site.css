@@ -1297,6 +1297,13 @@ img {
   color: var(--navy);
 }
 
+.article h3 {
+  margin-top: 28px;
+  color: var(--navy);
+  font-size: 23px;
+  line-height: 1.2;
+}
+
 .article-hero-image {
   width: 100%;
   margin: 24px 0 8px;

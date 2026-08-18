@@ -39,7 +39,7 @@ Insight posts support an optional `publish_date` field. If the date is in the fu
 
 Use the Decap editorial workflow for drafts and review. Use `publish_date` for posts that are approved but should not appear on the public site yet.
 
-Case studies include a `key_principles` list for the sidebar bullets. The current public case-study pages are still static HTML, so changing case-study CMS fields will not automatically rewrite the live case-study page until a case-study page generator is added.
+Case studies include a `key_principles` list for the sidebar bullets. Case-study pages that have generated markers are rebuilt from `content/case-studies` during `npm run build`, then uploaded by the GitHub Actions deploy workflow. Case Study 1 is currently wired to this build path.
 
 ## Framework Notes
 

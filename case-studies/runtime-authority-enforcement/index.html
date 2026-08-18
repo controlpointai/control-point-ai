@@ -31,107 +31,30 @@
     <main class="article-wrap">
       <article class="article">
         <a href="../index.html">Back to case studies</a>
+        <!-- generated-case-study-content:start -->
         <p class="eyebrow">Operational Governance</p>
         <h1>Runtime Authority Enforcement in Naval Nuclear Maintenance</h1>
-        <p class="lead">A hypothetical nuclear valve impeller replacement during naval availability shows why high-consequence AI governance must operate at runtime, across multiple authority chains, rather than only at initial system review.</p>
+        <p class="lead">A hypothetical naval maintenance scenario showing how AI assistance can support planning, engineering, material control, execution, testing, and final release while human authority, configuration control, runtime evidence, and accountability remain explicit and traceable.</p>
 
-        <h2>Executive Summary</h2>
-        <p>This case examines a reactor support seawater cooling valve impeller replacement during a scheduled naval shipyard availability. The scenario is useful because it naturally contains nuclear and non-nuclear work boundaries, multiple technical authorities, fleet operational authority, QA hold points, testing gates, dynamic execution conditions, and final Completion of Availability certification.</p>
-        <p>The case demonstrates the difference between traditional policy-based AI governance and execution-bound operational governance. AI assistance is not inherently the problem. Loss of runtime authority enforcement is the problem.</p>
-
-        <h2>Scenario Overview</h2>
-        <p>A reactor support seawater cooling valve impeller is identified for replacement during a scheduled availability. The task appears straightforward, but the operating environment quickly exposes overlapping governance domains.</p>
-        <table class="article-table">
-          <thead><tr><th>Authority Domain</th><th>Primary Responsibility</th></tr></thead>
-          <tbody>
-            <tr><td>NAVSEA Nuclear</td><td>Nuclear technical compliance</td></tr>
-            <tr><td>NAVSEA Non-Nuclear</td><td>Conventional system integration</td></tr>
-            <tr><td>TYCOM Nuclear</td><td>Fleet nuclear operational readiness</td></tr>
-            <tr><td>TYCOM Non-Nuclear</td><td>Overall platform mission readiness</td></tr>
-            <tr><td>Nuclear Project Team</td><td>Nuclear work integration</td></tr>
-            <tr><td>Non-Nuclear Project Team</td><td>Availability coordination</td></tr>
-            <tr><td>QA Organizations</td><td>Process and material compliance</td></tr>
-            <tr><td>Test Engineering</td><td>Operational verification</td></tr>
-            <tr><td>Shipyard Production</td><td>Physical work execution</td></tr>
-          </tbody>
-        </table>
-
-        <h2>The Central Governance Problem</h2>
-        <p>Traditional AI governance often assumes that if an AI system was reviewed initially, governance has been achieved. Naval nuclear maintenance demonstrates why that assumption fails. During execution, material conditions change, system configurations shift, radiological boundaries evolve, work sequencing changes, QA findings emerge, testing creates new operational states, and fleet priorities shift.</p>
-        <div class="quote-callout">Does authority still hold at t + ?t?</div>
-        <p>The real question is whether the work remains authorized under current conditions, whether operational boundaries are still valid, whether any condition invalidated prior approval assumptions, and whether re-authorization is required.</p>
-
-        <section class="phase-block">
-          <h2>Phase 1: Work Identification</h2>
-          <p>Fleet maintenance data identifies abnormal vibration trends associated with the valve. AI could analyze historical vibration data, compare fleet records, identify failure patterns, recommend maintenance timing, draft work candidate language, and correlate fleet lessons learned.</p>
-          <p><strong>Control Point 1: Authority Assignment.</strong> AI may assist analysis, but it cannot determine nuclear work classification, technical authority ownership, reactor plant impact designation, final work authorization, or operational risk acceptance.</p>
-          <table class="article-table">
-            <thead><tr><th>AI Functions</th><th>Human Authority Functions</th></tr></thead>
-            <tbody>
-              <tr><td>Trend analysis</td><td>Nuclear classification</td></tr>
-              <tr><td>Historical comparison</td><td>Technical authority assignment</td></tr>
-              <tr><td>Draft package creation</td><td>Work authorization</td></tr>
-              <tr><td>Predictive maintenance recommendation</td><td>Risk ownership</td></tr>
-            </tbody>
-          </table>
-          <p><strong>Key insight:</strong> AI can inform the process. AI cannot own the operational consequences.</p>
-        </section>
-
-        <section class="phase-block">
-          <h2>Phase 2: Work Package Development</h2>
-          <p>Engineering develops Technical Work Documents, testing requirements, tagout boundaries, material requirements, procedure references, QA requirements, and radiological controls. AI could draft Technical Guidance Instructions, retrieve prior procedures, suggest sequencing, generate logistics tasks, and detect missing documentation.</p>
-          <p><strong>Control Point 2: Nuclear / Non-Nuclear Boundary Validation.</strong> A valve may appear non-nuclear in isolation, but its significance can change if it supports reactor cooling functions, adjacent work changes system alignment, temporary configurations alter casualty response assumptions, new fleet guidance changes thresholds, or testing affects safety margins.</p>
-          <p><strong>Key insight:</strong> Governance cannot remain static while operational conditions evolve dynamically.</p>
-        </section>
-
-        <section class="phase-block">
-          <h2>Phase 3: Multi-Authority Routing and Approval</h2>
-          <p>The work package routes through NAVSEA, TYCOM, QA, Test Engineering, production, and project-team authorities. AI could detect missing approvals, route packages, identify conflicts, prioritize bottlenecks, correlate schedule impacts, and generate risk summaries.</p>
-          <p><strong>Control Point 3: Authority Conflict Resolution.</strong> AI may detect that nuclear testing requirements conflict with schedule acceleration goals. It cannot resolve nuclear risk acceptance, schedule-versus-safety tradeoffs, certification disagreements, or the question of who owns operational risk.</p>
-          <p><strong>Key insight:</strong> AI coordination is not equivalent to operational authority.</p>
-        </section>
-
-        <section class="phase-block">
-          <h2>Phase 4: Material Procurement and Verification</h2>
-          <p>Replacement material must satisfy pedigree, vendor approval, configuration control, technical specification, and QA traceability requirements. AI could optimize sourcing, predict delivery delays, compare certifications, detect anomalies, and correlate supplier discrepancies.</p>
-          <p><strong>Control Point 4: Approved Material Validation.</strong> A technically similar component may still violate configuration baselines, nuclear material requirements, or fleet certification constraints. Commercial optimization is not the same thing as operational acceptability.</p>
-          <p><strong>Key insight:</strong> Operational acceptability is not equivalent to commercial optimization.</p>
-        </section>
-
-        <section class="phase-block">
-          <h2>Phase 5: Work Execution</h2>
-          <p>Shipyard personnel perform system isolation, tagout verification, component removal, inspection, replacement installation, QA inspections, and radiological controls. AI copilots could display procedures, retrieve drawings, suggest tooling, monitor sequencing, detect checklist omissions, and provide reminders.</p>
-          <p>Unexpected conditions may emerge: corrosion beyond expected limits, incorrect impeller revision, adjacent work impacts, temporary shielding, tagout conflicts, or changing radiological conditions.</p>
-          <p><strong>Control Point 5: Runtime Execution Authorization.</strong> The operational system must continuously determine whether current work is still authorized, whether boundaries remain valid, whether approval assumptions changed, whether re-review is required, and whether authority still holds at t + ?t.</p>
-          <p><strong>Key insight:</strong> Governance is not documentation. Governance is active operational constraint enforcement.</p>
-        </section>
-
-        <section class="phase-block">
-          <h2>Phase 6: Testing and Restoration</h2>
-          <p>Following installation, the system undergoes functional testing, leak checks, vibration analysis, reactor support verification, and restoration testing. AI could compare historical test signatures, detect anomaly patterns, recommend retest conditions, analyze fleet performance data, and predict emerging failures.</p>
-          <table class="article-table">
-            <thead><tr><th>AI Role</th><th>Human Authority Role</th></tr></thead>
-            <tbody>
-              <tr><td>Inform</td><td>Authorize</td></tr>
-              <tr><td>Analyze</td><td>Accept risk</td></tr>
-              <tr><td>Detect</td><td>Certify</td></tr>
-              <tr><td>Recommend</td><td>Release</td></tr>
-            </tbody>
-          </table>
-          <p><strong>Key insight:</strong> Analytical capability does not equal operational authority.</p>
-        </section>
-
-        <section class="phase-block">
-          <h2>Phase 7: Completion of Availability</h2>
-          <p>Completion of Availability requires work completion verification, configuration validation, deficiency review, testing closure, operational certification, and fleet acceptance. AI may reconcile configuration databases, identify unresolved discrepancies, predict risk areas, generate readiness summaries, and correlate readiness data.</p>
-          <p><strong>Control Point 7: Final Operational Release Authority.</strong> CA is a formal operational declaration that the platform is certified for return to operational service. AI may support analysis throughout the availability, but fleet operational risk ownership, reactor plant certification, mission readiness acceptance, and safety accountability remain human.</p>
-          <p><strong>Key insight:</strong> AI may compress execution timelines. It does not eliminate operational accountability.</p>
-        </section>
-
-        <h2>Strategic Conclusion</h2>
-        <p>High-consequence AI governance cannot rely solely on policies, reviews, documentation, static approvals, or compliance checklists. Operational governance must focus on runtime authority enforcement, dynamic validation, continuous boundary monitoring, execution-bound accountability, and real-time constraint management.</p>
-        <div class="quote-callout">Authority must remain valid not only at time t, but continuously at time t + ?t as operational conditions evolve.</div>
-        <p>That is the difference between governance documentation and operational governance.</p>
+        <h2>Updated August 2026</h2>
+        <p>This case study has been reissued and rebaselined to the current ControlPointAI systems-engineering and technical-governance framework.</p>
+        <p>The scenario examines a hypothetical naval nuclear-maintenance availability in which AI may assist with engineering analysis, work-package development, material review, execution support, testing, and readiness assessment. The central issue is not whether AI can perform those functions. It is whether valid human authority, technical accountability, configuration control, and evidence remain connected to consequential execution as conditions change.</p>
+        <h3>What the Updated Case Demonstrates</h3>
+        <p>The reissued case expands the original runtime-authority concept to include:</p>
+        <ul><li>Data-flow and authority-flow mapping</li>
+        <li>Execution-bound control points</li>
+        <li>Runtime revalidation as conditions change</li>
+        <li>Accountable human technical authority</li>
+        <li>As-built configuration control</li>
+        <li>As-executed evidence and reconstruction</li>
+        <li>Traceability between the approved baseline and actual execution</li>
+        <li>Intervention, escalation, and recovery of control</li></ul>
+        <p>The scenario is deliberately hypothetical. It does not reproduce classified information, CUI, NOFORN material, proprietary information, controlled drawings, actual shipboard configurations, non-public acceptance criteria, real inspection results, or internal Navy maintenance records.</p>
+        <h2>Coming Next: UT Demonstration Project</h2>
+        <p>ControlPointAI is now developing a more detailed demonstration involving a fictional submarine piping ultrasonic-testing (UT) maintenance workflow.</p>
+        <p>The demonstration will use publicly available Navy and industry context together with purpose-built synthetic technical data. It will show how inspection evidence, AI recommendations, technical authority, configuration state, execution gates, and retained evidence can be mapped across an engineering workflow without exposing non-public naval technical information.</p>
+        <p><strong>The full UT demonstration will be released separately.</strong></p>
+        <!-- generated-case-study-content:end -->
 
         <nav class="case-nav" aria-label="Case study navigation">
           <span></span>
@@ -139,6 +62,7 @@
         </nav>
       </article>
       <aside class="sidebar">
+        <!-- generated-case-study-sidebar:start -->
         <h2>Key Principles</h2>
         <ul>
           <li>AI can inform; humans must authorize.</li>
@@ -147,6 +71,7 @@
           <li>Commercial optimization is not operational acceptability.</li>
           <li>Final release authority remains accountable and human.</li>
         </ul>
+        <!-- generated-case-study-sidebar:end -->
       </aside>
     </main>
     <footer class="footer">
