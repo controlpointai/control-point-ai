@@ -84,6 +84,7 @@ function markdownToHtml(markdown) {
   const html = [];
   let paragraph = [];
   let list = [];
+  let table = [];
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -97,18 +98,49 @@ function markdownToHtml(markdown) {
     list = [];
   }
 
+  function flushTable() {
+    if (!table.length) return;
+    const [head, ...body] = table;
+    html.push(
+      [
+        '<table class="article-table">',
+        `  <thead><tr>${head.map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join("")}</tr></thead>`,
+        "  <tbody>",
+        ...body.map((row) => `    <tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join("")}</tr>`),
+        "  </tbody>",
+        "</table>",
+      ].join("\n")
+    );
+    table = [];
+  }
+
+  function parseTableRow(line) {
+    if (!line.includes("|")) return null;
+    const cells = line
+      .replace(/^\|/, "")
+      .replace(/\|$/, "")
+      .split("|")
+      .map((cell) => cell.trim());
+
+    if (cells.length < 2) return null;
+    if (cells.every((cell) => /^:?-{3,}:?$/.test(cell))) return [];
+    return cells;
+  }
+
   markdown.split(/\r?\n/).forEach((line) => {
     const trimmed = line.trim();
 
     if (!trimmed) {
       flushParagraph();
       flushList();
+      flushTable();
       return;
     }
 
     if (trimmed.startsWith("### ")) {
       flushParagraph();
       flushList();
+      flushTable();
       html.push(`<h3>${inlineMarkdown(trimmed.slice(4))}</h3>`);
       return;
     }
@@ -116,13 +148,32 @@ function markdownToHtml(markdown) {
     if (trimmed.startsWith("## ")) {
       flushParagraph();
       flushList();
+      flushTable();
       html.push(`<h2>${inlineMarkdown(trimmed.slice(3))}</h2>`);
+      return;
+    }
+
+    const tableRow = parseTableRow(trimmed);
+    if (Array.isArray(tableRow)) {
+      if (!tableRow.length) return;
+      flushParagraph();
+      flushList();
+      table.push(tableRow);
       return;
     }
 
     if (/^[-*]\s+/.test(trimmed)) {
       flushParagraph();
+      flushTable();
       list.push(trimmed.replace(/^[-*]\s+/, ""));
+      return;
+    }
+
+    if (trimmed.startsWith("> ")) {
+      flushParagraph();
+      flushList();
+      flushTable();
+      html.push(`<div class="quote-callout">${inlineMarkdown(trimmed.slice(2))}</div>`);
       return;
     }
 
@@ -131,6 +182,7 @@ function markdownToHtml(markdown) {
 
   flushParagraph();
   flushList();
+  flushTable();
   return html.join("\n");
 }
 
