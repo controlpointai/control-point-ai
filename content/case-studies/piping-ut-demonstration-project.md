@@ -5,7 +5,7 @@ order: 1
 layout: article
 eyebrow: Active Demonstration Project
 badge_variant: ""
-card_image: /assets/images/uploads/announcement-image.png
+card_image: ""
 status: draft
 summary: ControlPointAI’s Piping UT Demonstration Project explores how AI can
   assist ultrasonic-testing inspection analysis and engineering work-product
