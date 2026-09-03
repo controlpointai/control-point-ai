@@ -2,11 +2,11 @@
 title: Piping UT Demonstration Project
 live_path: piping-ut-demonstration-project
 order: 1
-layout: article
+layout: report
 eyebrow: Active Demonstration Project
 badge_variant: ""
-card_image: ""
-status: draft
+card_image: "/assets/images/uploads/announcement-image.png"
+status: featured
 summary: ControlPointAI’s Piping UT Demonstration Project explores how AI can
   assist ultrasonic-testing inspection analysis and engineering work-product
   development while preserving human technical authority, traceability, and
@@ -28,6 +28,15 @@ mapping_focus: ControlPointAI would map the flow of UT inspection evidence, AI
   the AI may analyze or draft, where human technical authority is required, how
   material changes trigger revalidation, and how the as-executed event can be
   reconstructed against the approved baseline.
+themes:
+  - UT inspection evidence
+  - Human technical authority
+  - Runtime revalidation
+key_principles:
+  - AI may assist, analyze, flag, organize, compare, recommend, and draft.
+  - Final engineering judgment remains human.
+  - New evidence must trigger meaningful revalidation before consequential action continues.
+  - Evidence, AI output, human decision, authority basis, and final record must remain traceable.
 report_label: Piping UT Demonstration Project
 document_status: Active Demonstration Project — Launched August 28, 2026
 document_notice: Public-source / synthetic demonstration

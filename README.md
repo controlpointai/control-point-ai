@@ -53,6 +53,8 @@ For the PDF-style report look:
 
 New featured case studies only need a `Live Page Path`, `Sort Order`, index card fields, and body content. The build creates the public page and index card automatically.
 
+If a case-study preview works in Decap but the entry does not appear on the public Case Studies tab, check two things: the Decap entry must be published out of `Unpublished Entries`, and `Visibility on Case Studies Tab` must be set to `Featured - show on Case Studies tab`. A `Draft` case-study entry can still have a direct generated page, but it is intentionally hidden from the public index and previous/next navigation.
+
 ## Framework Notes
 
 ControlPointAI explores execution-bound authority for AI-enabled systems.

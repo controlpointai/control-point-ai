@@ -2,7 +2,7 @@
 title: "Context Disruption Following User Interface Intervention"
 live_path: "context-disruption-ui-intervention"
 status: "featured"
-order: 3
+order: 4
 layout: article
 eyebrow: "Human-AI Interaction Governance"
 badge_variant: "red"

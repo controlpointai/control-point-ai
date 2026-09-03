@@ -74,14 +74,15 @@ collections:
           - { label: "Amber", value: "amber" }
           - { label: "Red", value: "red" }
       - { label: "Card Image", name: "card_image", widget: "image", required: false, default: "/assets/images/uploads/newsletter-control-point-authority.jpg" }
-      - label: "Status"
+      - label: "Visibility on Case Studies Tab"
         name: "status"
         widget: "select"
-        default: "draft"
+        default: "featured"
+        hint: "This is separate from Decap's Unpublished Entries workflow. After you click Publish, Featured appears on the public Case Studies tab; Draft keeps the direct page available but hides it from the index."
         options:
-          - { label: "Draft", value: "draft" }
-          - { label: "Featured", value: "featured" }
-          - { label: "Archived", value: "archived" }
+          - { label: "Featured - show on Case Studies tab", value: "featured" }
+          - { label: "Draft - hide from Case Studies tab", value: "draft" }
+          - { label: "Archived - hide from Case Studies tab", value: "archived" }
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "SEO Title", name: "meta_title", widget: "string", required: false, hint: "Optional browser/search title. Defaults to the case-study title." }
       - { label: "SEO Description", name: "meta_description", widget: "text", required: false, hint: "Optional search description. Defaults to the summary." }

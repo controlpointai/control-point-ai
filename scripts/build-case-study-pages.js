@@ -79,6 +79,10 @@ function listValue(value) {
   return [value];
 }
 
+function isFeatured(entry) {
+  return entry.data.status === "featured";
+}
+
 function sortOrder(value, fallback) {
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : fallback;
@@ -167,7 +171,7 @@ function markdownToHtml(markdown, options = {}) {
   }
 
   function sectionClass(heading) {
-    if (/^Public-Source \/ Synthetic Case Study$/i.test(heading)) {
+    if (/^Public-Source \/ Synthetic (Case Study|Demonstration)$/i.test(heading)) {
       return "case-report-section case-report-notice";
     }
 
@@ -419,7 +423,10 @@ function renderSidebar(entry, isReport) {
     .join("\n");
 }
 
-function renderCaseNav(entries, index) {
+function renderCaseNav(entries, entry) {
+  const index = entries.findIndex((item) => item.file === entry.file);
+  if (index === -1) return "";
+
   const previous = entries[index - 1];
   const next = entries[index + 1];
 
@@ -435,7 +442,7 @@ function renderCaseNav(entries, index) {
   ].join("\n");
 }
 
-function renderCasePage(entry, entries, index) {
+function renderCasePage(entry, navigationEntries) {
   const data = entry.data;
   const isReport = String(data.layout || (data.pdf_path ? "report" : "article")).toLowerCase() === "report";
   const articleContent = isReport ? renderReportArticle(entry) : renderStandardArticle(entry);
@@ -443,7 +450,7 @@ function renderCasePage(entry, entries, index) {
       <article class="article${isReport ? " case-report" : ""}">
         <a href="../index.html">Back to case studies</a>
 ${articleContent}
-${renderCaseNav(entries, index)}
+${renderCaseNav(navigationEntries, entry)}
       </article>
       <aside class="sidebar${isReport ? " case-report-sidebar" : ""}">
 ${renderSidebar(entry, isReport)}
@@ -475,7 +482,7 @@ function replaceGeneratedBlock(html, name, replacement) {
 
 function renderIndexCards(entries) {
   return entries
-    .filter((entry) => entry.data.status === "featured")
+    .filter(isFeatured)
     .map((entry) => {
       const data = entry.data;
       const themes = listValue(data.themes);
@@ -519,10 +526,12 @@ const entries = fs
   .filter((entry) => entry.data.live_path)
   .sort((a, b) => a.order - b.order || a.file.localeCompare(b.file));
 
-entries.forEach((entry, index) => {
+const navigationEntries = entries.filter(isFeatured);
+
+entries.forEach((entry) => {
   const outputPath = path.join(root, "case-studies", entry.data.live_path, "index.html");
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, renderCasePage(entry, entries, index));
+  fs.writeFileSync(outputPath, renderCasePage(entry, navigationEntries));
   console.log(`Generated ${path.relative(root, outputPath)} from ${path.relative(root, entry.sourcePath)}.`);
 });
 

@@ -2,7 +2,7 @@
 title: "Unauthorized Concept Drift During AI Analysis"
 live_path: "unauthorized-concept-drift"
 status: "featured"
-order: 2
+order: 3
 layout: article
 eyebrow: "Analytical Governance"
 badge_variant: "amber"
