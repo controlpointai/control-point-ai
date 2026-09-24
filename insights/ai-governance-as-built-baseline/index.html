@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="../../assets/images/favicon.png"><title>Why AI Governance Needs an As-Built Baseline | ControlPointAI</title>
+<meta name="author" content="Wayne Couch"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://controlpointai.org/insights/ai-governance-as-built-baseline/#article","headline":"Why AI Governance Needs an As-Built Baseline","description":"AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be…","url":"https://controlpointai.org/insights/ai-governance-as-built-baseline/","mainEntityOfPage":"https://controlpointai.org/insights/ai-governance-as-built-baseline/","datePublished":"2026-08-01T09:11:00.000Z","dateModified":"2026-08-01T09:36:20.000Z","articleSection":"Operations","author":{"@type":"Person","name":"Wayne Couch"},"publisher":{"@type":"Organization","name":"ControlPointAI","url":"https://controlpointai.org"},"image":["https://controlpointai.org/assets/images/uploads/article-3-image.png"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://controlpointai.org/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://controlpointai.org/insights/"},{"@type":"ListItem","position":3,"name":"Why AI Governance Needs an As-Built Baseline","item":"https://controlpointai.org/insights/ai-governance-as-built-baseline/"}]}]}</script>
+<link rel="stylesheet" href="../../assets/styles/site.css"><script async src="https://www.googletagmanager.com/gtag/js?id=G-61G7BKXNT6"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-61G7BKXNT6");</script>  <meta name="description" content="AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be…">
+  <link rel="canonical" href="https://controlpointai.org/insights/ai-governance-as-built-baseline/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="ControlPointAI">
+  <meta property="og:title" content="Why AI Governance Needs an As-Built Baseline | ControlPointAI">
+  <meta property="og:description" content="AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be…">
+  <meta property="og:url" content="https://controlpointai.org/insights/ai-governance-as-built-baseline/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why AI Governance Needs an As-Built Baseline | ControlPointAI">
+  <meta name="twitter:description" content="AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be…">
+  <meta property="og:image" content="https://controlpointai.org/assets/images/uploads/article-3-image.png">
+  <meta name="twitter:image" content="https://controlpointai.org/assets/images/uploads/article-3-image.png">
+  <script id="sitewide-structured-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://controlpointai.org/insights/ai-governance-as-built-baseline/#webpage","url":"https://controlpointai.org/insights/ai-governance-as-built-baseline/","name":"Why AI Governance Needs an As-Built Baseline | ControlPointAI","description":"AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be…","isPartOf":{"@id":"https://controlpointai.org/#website"},"publisher":{"@id":"https://controlpointai.org/#organization"},"headline":"Why AI Governance Needs an As-Built Baseline","mainEntityOfPage":{"@id":"https://controlpointai.org/insights/ai-governance-as-built-baseline/#webpage"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://controlpointai.org/"},{"@type":"ListItem","position":2,"name":"Insights","item":"https://controlpointai.org/insights/"},{"@type":"ListItem","position":3,"name":"Why AI Governance Needs an As-Built Baseline","item":"https://controlpointai.org/insights/ai-governance-as-built-baseline/"}]}]}</script>
+</head>
+<body data-depth="2">
+    <a class="skip-link" href="#main-content">Skip to main content</a><header class="site-header"><div class="nav-shell"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><span class="mark-c">C</span><span class="mark-p">P</span></span><span>ControlPointAI</span></a><nav class="site-nav" aria-label="Primary navigation"><a href="/services/">Services</a><a href="/mission/">Method</a><a href="/case-studies/">Case Studies</a><a href="/insights/">Insights</a><a href="/contact/">Contact</a></nav></div></header>
+<main id="main-content" class="article-wrap"><article class="article"><nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/insights/">Insights</a></nav><p class="eyebrow">Issue 13</p><h1>Why AI Governance Needs an As-Built Baseline</h1><p class="lead">AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be maintained as a controlled as-built baseline that reflects the system actually operating.</p><p>By Wayne Couch · <time datetime="2026-08-01T09:11:00.000Z">August 1, 2026</time></p><img class="article-hero-image" src="/assets/images/uploads/article-3-image.png" alt="" decoding="async" loading="eager" fetchpriority="high" width="1536" height="1024"><h2>Introduction</h2>
+<p>In the previous article, I argued that data flow mapping is the foundation of AI governance.</p>
+<p>Before an organization can govern artificial intelligence, it must understand how information moves through its operations, where AI enters the process, who receives its outputs, and where those outputs begin to influence decisions or actions.</p>
+<p>But creating the initial map is only the beginning.</p>
+<p>AI-enabled systems do not remain static. Data sources change. Models are updated. Prompts are revised. Agents gain new tools. Interfaces are added. Approval paths shift. Manual workarounds emerge. New execution routes appear.</p>
+<p>Over time, the system that was originally reviewed and approved may no longer be the system that is actually operating.</p>
+<p>That creates a fundamental governance problem:</p>
+<p>What happens when the documented system and the operating system begin to drift apart?</p>
+<h2>The Engineering Meaning of “As-Built”</h2>
+<p>In traditional engineering environments, the original design does not automatically become the permanent record of the finished system.</p>
+<p>Construction, installation, testing, integration, and operational experience frequently produce approved changes. Those changes must be incorporated into the engineering record so the documentation reflects what was actually built.</p>
+<p>That updated record is commonly called the as-built configuration.</p>
+<p>The as-built does more than preserve history. It establishes the current technical baseline against which future maintenance, modifications, inspections, troubleshooting, and risk decisions are made.</p>
+<p>Without an accurate as-built baseline, engineers may believe they are evaluating one system while a different system actually exists.</p>
+<p>The same problem now applies to operational AI.</p>
+<p>An AI system may begin with a documented architecture, approved data sources, defined authority boundaries, assigned human oversight, and established control points.</p>
+<p>But those conditions can change after deployment.</p>
+<p>A new agent may be introduced. A model update may alter behavior. A prompt may change how information is interpreted. An integration may create a new downstream effect. An alternate execution path may allow an action to bypass the control structure that was originally approved.</p>
+<p>When those changes are not incorporated into the governing documentation, the organization is no longer governing the live system.</p>
+<p>It is governing a historical description of it.</p>
+<h2>The As-Designed System Is Not Always the As-Executed System</h2>
+<p>AI governance often relies heavily on policies, inventories, architecture diagrams, risk assessments, and approval records.</p>
+<p>Those artifacts describe intent.</p>
+<p>·  which AI capabilities were approved,</p>
+<p>·  where they were expected to operate,</p>
+<p>·  who was assigned authority,</p>
+<p>·  what controls were supposed to apply,</p>
+<p>·  and how human oversight was intended to function.</p>
+<p>But governance also needs to determine what actually happened during execution.</p>
+<p>The declared path and the as-executed path are not always the same.</p>
+<p>·  an alternate data source,</p>
+<p>·  a manual workaround,</p>
+<p>·  an unplanned retry,</p>
+<p>·  an agent handoff,</p>
+<p>·  a bypassed approval,</p>
+<p>·  an outdated policy,</p>
+<p>·  a changed prompt,</p>
+<p>·  an unexpected tool call,</p>
+<p>·  or an intervention that occurred outside the planned process.</p>
+<p>A diagram showing the intended path does not prove that the required authority, control point, or review remained effective during the actual event.</p>
+<p>The as-executed record must support that claim.</p>
+<p>This distinction is central to the ControlPointAI foundation. AI-1 treats the governed system as the complete operational structure through which information becomes recommendation, decision, authority, execution, consequence, evidence, and corrective action. It also requires the declared operational path and the as-executed path to be distinguishable and reconcilable.</p>
+<p>AI-2 carries that requirement into the technical governance baseline. A declared control path is not proven effective merely because it appears in an architecture, policy, charter, or diagram. The operating record must demonstrate that the correct authority remained active, the required gate operated, intervention remained possible, and the event could be reconstructed.</p>
+<h2>Drift Can Occur Even When Permissions Do Not Change</h2>
+<p>One of the most difficult aspects of AI governance is that operational behavior may change even when formal permissions remain unchanged.</p>
+<p>A model upgrade may alter how an agent interprets context. A revised prompt may affect how risk is weighed. A new tool may expand what an agent can accomplish. A workflow change may move a decision closer to execution without changing the organization chart or policy manual.</p>
+<p>In those situations, the formal authority structure may appear unchanged while the system’s effective operational authority has shifted.</p>
+<p>That is authority drift.</p>
+<p>Authority drift is not limited to a person or agent receiving a new written delegation. It can occur whenever the practical ability to influence or execute consequential actions changes over time, whether or not the formal documentation changed.</p>
+<p>The earlier Article 3 working discussions identified two related questions:</p>
+<p>·  Where did this new concept, decision, or execution path come from?</p>
+<p>·  What changed between the approved baseline and current behavior?</p>
+<p>The first is a traceability question.</p>
+<p>The second is a configuration-management question.</p>
+<p>Together, they determine whether the current operational system still matches the approved system.</p>
+<h2>An As-Built Drawing Is Not Enough</h2>
+<p>An as-built drawing can still become obsolete.</p>
+<p>If it is created once and then left unchanged, it will eventually become another historical artifact.</p>
+<p>That is why the real requirement is not simply an AI engineering drawing.</p>
+<p>The requirement is a disciplined process for maintaining the complete operational configuration over time.</p>
+<p>The controlled configuration may include:</p>
+<p>·  operational data flows,</p>
+<p>·  authority flows,</p>
+<p>·  models and agents,</p>
+<p>·  prompts and context sources,</p>
+<p>·  tools and interfaces,</p>
+<p>·  decision and execution paths,</p>
+<p>·  control points and approval gates,</p>
+<p>·  alternate or equivalent paths,</p>
+<p>·  authority envelopes and delegations,</p>
+<p>·  operational risk ownership,</p>
+<p>·  technical authority,</p>
+<p>·  evidence and instrumentation,</p>
+<p>·  intervention and recovery mechanisms,</p>
+<p>·  and the applicable configuration version.</p>
+<p>AI-2 requires changes to these elements to trigger technical review and artifact updates. It also identifies configuration baselines, change records, evidence plans, authority-flow maps, control-point registers, execution-path descriptions, and reconstruction packages as minimum technical-governance artifacts.</p>
+<p>This is much broader than keeping a diagram visually current.</p>
+<p>It is the process of maintaining an accurate, reviewable, and technically governed record of the live operational system.</p>
+<h2>The Change-Control Process</h2>
+<p>A practical AI operational configuration-management process should begin before a change enters the live system.</p>
+<p>A proposed change may involve:</p>
+<p>·  adding or removing an AI model,</p>
+<p>·  modifying a prompt,</p>
+<p>·  connecting a new data source,</p>
+<p>·  introducing an agent or sub-agent,</p>
+<p>·  changing an approval threshold,</p>
+<p>·  assigning new authority,</p>
+<p>·  adding a tool,</p>
+<p>·  revising a policy,</p>
+<p>·  creating an alternate path,</p>
+<p>·  or changing logging, intervention, or recovery capabilities.</p>
+<p>The change should then be evaluated against the complete operational system.</p>
+<p>That review should determine:</p>
+<p>·  What data flows change?</p>
+<p>·  What authority flows change?</p>
+<p>·  What downstream systems or people are affected?</p>
+<p>·  Does the operational risk basis change?</p>
+<p>·  Are existing control points still sufficient?</p>
+<p>·  Does the change create a new bypass or alternate execution path?</p>
+<p>·  Will runtime revalidation be required?</p>
+<p>·  Does the evidence plan still support reconstruction?</p>
+<p>·  Can intervention still occur before the result becomes irreversible?</p>
+<p>·  Who possesses approval, technical, and risk-acceptance authority?</p>
+<p>After approval and implementation, the engineering documentation must be revised, the configuration baseline updated, and the deployed condition verified against the approved change.</p>
+<p>The operating system then becomes the new controlled as-built baseline.</p>
+<p>Propose change → analyze impact → update the engineering documentation → obtain approval → implement → verify at runtime→ update the as-built baseline.</p>
+<p>That process closes the loop between design intent, operational execution, and continued governance.</p>
+<h2>Runtime Verification and the Baseline</h2>
+<p>Runtime verification is essential, but runtime verification requires a baseline.</p>
+<p>An organization cannot reliably determine whether the live system has drifted unless it knows what the authorized system is supposed to be.</p>
+<p>The as-built baseline provides that reference.</p>
+<p>Runtime evidence can then be used to compare:</p>
+<p>·  the approved data path with the data path actually used,</p>
+<p>·  the declared authority chain with the authority exercised,</p>
+<p>·  the expected control point with the gate that actually fired,</p>
+<p>·  the approved model and prompt versions with those active during execution,</p>
+<p>·  the planned human review with the review that occurred,</p>
+<p>·  and the intended recovery path with the actions taken.</p>
+<p>Configuration management establishes the approved operational state.</p>
+<p>Runtime governance determines whether the live system remains within that state—or whether revalidation, intervention, corrective action, or suspension is required.</p>
+<p>Neither is sufficient alone.</p>
+<h2>Why This Matters</h2>
+<p>When the as-built configuration is not maintained, organizations gradually lose the ability to answer basic operational questions:</p>
+<p>·  What is actually running?</p>
+<p>·  Which data sources are active?</p>
+<p>·  Which model, prompt, policy, or agent version produced the result?</p>
+<p>·  Who possessed authority at the time?</p>
+<p>·  Which execution gate approved or denied the action?</p>
+<p>·  Did the action follow the approved path?</p>
+<p>·  Were alternate paths available?</p>
+<p>·  What changed?</p>
+<p>·  Who approved the change?</p>
+<p>·  Can the event be reconstructed?</p>
+<p>·  Can the organization safely restore control?</p>
+<p>These are not only audit questions.</p>
+<p>They are engineering, operational, legal, safety, financial, and accountability questions.</p>
+<p>The consequences become more serious as AI moves closer to consequential action.</p>
+<p>A stale map may be inconvenient in a low-risk productivity tool.</p>
+<p>It may be unacceptable in a system affecting defense operations, healthcare, transportation, industrial systems, financial transactions, public services, or other high-consequence environments.</p>
+<h2>From Mapping to an Engineered Operational Record</h2>
+<p>Data flow mapping remains the foundation.</p>
+<p>But a foundation must support a structure that can survive change.</p>
+<p>ControlPointAI therefore treats operational AI documentation as a living engineering baseline rather than a one-time governance artifact.</p>
+<p>The objective is not merely to describe where AI was intended to operate.</p>
+<p>It is to preserve the connection among:</p>
+<p>·  the approved design,</p>
+<p>·  the current operational configuration,</p>
+<p>·  the authority to act,</p>
+<p>·  the path actually executed,</p>
+<p>·  the evidence produced,</p>
+<p>·  and the actions required to restore control when the system diverges.</p>
+<p>An engineering drawing without configuration management becomes a historical snapshot.</p>
+<p>An AI governance framework without configuration management eventually becomes one as well.</p>
+<h2>Looking Ahead</h2>
+<p>In the next phase of this series, ControlPointAI will move from principle to application.</p>
+<p>Using a fictional AI-enabled operational system, we will begin developing a prototype engineering package showing how data flows, authority paths, control points, configuration changes, and as-executed evidence can be documented and maintained over time.</p>
+<p>That demonstration will be developed as a controlled project under a formal plan of action and milestones.</p>
+<p>The goal will not simply be to produce a finished drawing.</p>
+<p>It will be to demonstrate the process required to keep that drawing trustworthy as the system changes.</p>
+<p>ControlPointAI principle: map the operating system, establish the approved baseline, and control every material change that can alter data, authority, execution, evidence, or recovery.</p><div class="quote-callout">ControlPointAI principle: map where AI-generated work moves, then place Control Points before operational effects propagate.</div><nav class="case-nav" aria-label="Insight navigation"><a href="/insights/">Back to Insights</a><a href="/contact/">Request Data Flow Mapping</a></nav></article>
+<aside class="sidebar"><h2>Article Context</h2><ul class="credential-list"><li><strong>Publication:</strong> Issue 13</li><li><strong>Theme:</strong> Operations</li><li><strong>Author:</strong> Wayne Couch</li><li><strong>Related service:</strong> <a href="/services/#data-flow-mapping">AI Data Flow Mapping</a></li></ul><h2>Related insights</h2><ul class="credential-list"><li><a href="/insights/observation-to-demonstration-ai-control/">Observation to Demonstration: Proving AI Control When Decisions Matter</a></li><li><a href="/insights/data-flow-mapping-foundation-of-ai-governance/">Why Data Flow Mapping Is the Foundation of AI Governance</a></li><li><a href="/insights/foundation-of-controlpointai/">The Foundation of ControlPointAI</a></li></ul><a class="button ghost" href="/contact/">Request Data Flow Mapping</a></aside></main>
+<footer class="footer"><div class="container footer-grid"><div class="footer-brand"><strong>ControlPointAI&trade;</strong><p>AI data flow mapping and Control Point placement for high-consequence teams.</p><p class="copyright">&copy; 2026 ControlPointAI. All Rights Reserved.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="/services/">Services</a><a href="/mission/">Method</a><a href="/case-studies/">Case Studies</a><a href="/insights/">Insights</a></nav><div class="footer-cta"><span>Need to see where AI-generated work moves before it becomes action?</span><a href="/contact/">Start the conversation</a></div></div></footer><script src="../../assets/scripts/site.js" defer></script></body></html>

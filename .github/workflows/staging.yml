@@ -1,0 +1,55 @@
+name: Deploy noindex staging site
+on:
+  workflow_dispatch:
+  push:
+    branches: [staging]
+permissions:
+  id-token: write
+  contents: read
+concurrency:
+  group: controlpointai-staging
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: aws-actions/configure-aws-credentials@v6.1.0
+        with:
+          role-to-assume: arn:aws:iam::953199921486:role/controlpointai-role
+          aws-region: us-east-2
+      - name: Provision staging
+        run: aws cloudformation deploy --stack-name controlpointai-staging-site --template-file aws/staging-site.yml --no-fail-on-empty-changeset
+      - name: Read outputs
+        id: out
+        run: |
+          B=$(aws cloudformation describe-stacks --stack-name controlpointai-staging-site --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" --output text)
+          D=$(aws cloudformation describe-stacks --stack-name controlpointai-staging-site --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" --output text)
+          H=$(aws cloudformation describe-stacks --stack-name controlpointai-staging-site --query "Stacks[0].Outputs[?OutputKey=='DistributionDomainName'].OutputValue" --output text)
+          echo "bucket=$B" >> "$GITHUB_OUTPUT"; echo "distribution=$D" >> "$GITHUB_OUTPUT"; echo "url=https://$H" >> "$GITHUB_OUTPUT"
+      - name: Build, validate, and protect staging
+        env:
+          SITE_URL: https://controlpointai.org
+          STAGING_SITE_URL: ${{ steps.out.outputs.url }}
+        run: npm run build && npm run prepare:staging
+      - name: Upload staging
+        env:
+          B: ${{ steps.out.outputs.bucket }}
+        run: |
+          aws s3 sync . "s3://$B" --delete --cache-control "public, max-age=0, must-revalidate" \
+            --exclude ".git/*" --exclude ".github/*" --exclude ".gitignore" --exclude ".gitattributes" --exclude "README.md" \
+            --exclude "admin/*" --exclude "aws/*" --exclude "cloudfront/*" --exclude "content/*" \
+            --exclude "docs/*" --exclude "scripts/*" --exclude "tmp/*" --exclude "package.json"
+          mapfile -t pages < <(find . -type f -name index.html -not -path "./.git/*" -not -path "./.github/*" -not -path "./admin/*" -not -path "./aws/*" -not -path "./cloudfront/*" -not -path "./node_modules/*" -not -path "./tmp/*" | sed 's#^./##;s#/index.html$##' | sort)
+          for page in "${pages[@]}"; do
+            [[ -n "$page" && "$page" != "index.html" ]] || continue
+            for key in "$page/index.html" "$page/" "$page"; do aws s3api put-object --bucket "$B" --key "$key" --body "$page/index.html" --content-type "text/html; charset=utf-8" --cache-control "public, max-age=0, must-revalidate" >/dev/null; done
+          done
+      - name: Invalidate staging
+        run: |
+          ID=$(aws cloudfront create-invalidation --distribution-id "${{ steps.out.outputs.distribution }}" --paths "/*" --query Invalidation.Id --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "${{ steps.out.outputs.distribution }}" --id "$ID"
+          echo "### Staging: ${{ steps.out.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"

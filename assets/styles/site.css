@@ -2516,3 +2516,25 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* generated-phase2-accessibility:start */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  border-radius: 0.35rem;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.25);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+img[width][height] { height: auto; }
+.generated-related-insights-sidebar { margin-top: 2rem; }
+/* generated-phase2-accessibility:end */

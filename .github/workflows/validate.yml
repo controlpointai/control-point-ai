@@ -1,0 +1,15 @@
+name: Validate website build
+on: [pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Build and validate
+        env:
+          SITE_URL: https://controlpointai.org
+        run: npm run build

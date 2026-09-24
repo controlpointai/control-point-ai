@@ -1,0 +1,7 @@
+{
+  "name": "ControlPointAI",
+  "description": "AI data flow mapping and Control Point placement for high-consequence teams.",
+  "logo": "/assets/images/controlpointai-logo.svg",
+  "default_author": "Wayne Couch",
+  "same_as": []
+}
