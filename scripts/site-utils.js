@@ -6,7 +6,7 @@ const { execFileSync } = require("child_process");
 const root = path.resolve(__dirname, "..");
 const SITE_URL = String(process.env.SITE_URL || "https://controlpointai.org").replace(/\/+$/, "");
 const SITE_ORIGIN = new URL(SITE_URL).origin;
-const EXCLUDED_DIRS = new Set([".git", ".github", "admin", "aws", "cloudfront", "content", "demo", "docs", "node_modules", "scripts", "tmp"]);
+const EXCLUDED_DIRS = new Set([".git", ".github", "admin", "build", "cloudflare", "content", "demo", "dist", "docs", "node_modules", "scripts", "tmp"]);
 
 function walk(dir, predicate = () => true) {
   const entries = fs.existsSync(dir) ? fs.readdirSync(dir, { withFileTypes: true }) : [];

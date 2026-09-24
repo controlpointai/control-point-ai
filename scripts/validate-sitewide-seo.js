@@ -90,7 +90,4 @@ ok(sitemapUrls.length === pages.length, `Sitemap/page count mismatch: ${sitemapU
 for (const page of pages) ok(sitemapUrls.includes(page.canonical), `Sitemap missing ${page.canonical}`);
 for (const url of sitemapUrls) ok(canonicals.has(url), `Sitemap includes noncanonical or noindex URL: ${url}`);
 for (const [pathname, count] of inbound) if (pathname !== "/") ok(count > 0, `Orphan canonical page: ${pathname}`);
-const redirectFile = path.join(root, "cloudfront", "functions", "site-redirects.js");
-ok(fs.existsSync(redirectFile), "Missing sitewide redirect function");
-ok(fs.statSync(redirectFile).size <= 10000, "CloudFront Function exceeds 10,000 bytes");
-console.log(`Validated ${pages.length} canonical pages, metadata, JSON-LD, internal links, sitemap coverage, accessibility basics, and redirects.`);
+console.log(`Validated ${pages.length} canonical pages, metadata, JSON-LD, internal links, sitemap coverage, and accessibility basics.`);

@@ -1,0 +1,16 @@
+name = "controlpointai-services"
+main = "src/index.js"
+compatibility_date = "2026-09-24"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://controlpointai.org,https://www.controlpointai.org,https://controlpointai-site-2026.web.app,http://127.0.0.1:4173,http://localhost:4173"
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "INQUIRIES_DB"
+database_name = "controlpointai-inquiries"
+database_id = "fa74abba-49bf-453a-b106-294ca57d5b92"
+migrations_dir = "migrations"

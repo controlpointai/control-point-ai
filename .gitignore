@@ -9,6 +9,7 @@ desktop.ini
 
 node_modules/
 .firebase/
+.wrangler/
 dist/
 build/
 tmp/

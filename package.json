@@ -3,11 +3,11 @@
   "version": "1.2.0",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-insights-data.js && node scripts/build-case-study-pages.js && node scripts/build-insights-pages.js && node scripts/build-site-links.js && node scripts/enhance-site-seo.js && node scripts/build-sitemap.js && node scripts/build-site-redirects.js && node scripts/audit-assets.js && node scripts/validate-site.js && node scripts/validate-sitewide-seo.js",
+    "build": "node scripts/build-insights-data.js && node scripts/build-case-study-pages.js && node scripts/build-insights-pages.js && node scripts/build-site-links.js && node scripts/enhance-site-seo.js && node scripts/build-sitemap.js && node scripts/audit-assets.js && node scripts/validate-site.js && node scripts/validate-sitewide-seo.js",
     "build:hosting": "npm run build && node scripts/prepare-firebase-hosting.js",
     "deploy:firebase": "npm run build:hosting && npx --yes firebase-tools@latest deploy --only hosting",
+    "test:worker": "node cloudflare/controlpointai-services/test-worker.mjs",
     "validate": "node scripts/validate-site.js && node scripts/validate-sitewide-seo.js",
-    "prepare:staging": "node scripts/prepare-staging.js",
     "audit:live": "node scripts/audit-live-site.js"
   }
 }

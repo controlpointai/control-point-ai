@@ -8,7 +8,6 @@ const archivePath = path.join(root, "insights", "index.html");
 const dataPath = path.join(root, "assets", "scripts", "insights-data.js");
 const legacyPath = path.join(root, "insights", "post", "index.html");
 const manifestPath = path.join(root, "tmp", "insights-manifest.json");
-const redirectPath = path.join(root, "cloudfront", "functions", "legacy-insight-redirect.js");
 const SITE_URL = String(process.env.SITE_URL || "https://controlpointai.org").replace(/\/+$/, "");
 const DEFAULT_AUTHOR = "Wayne Couch";
 const DEFAULT_IMAGE = "/assets/images/uploads/newsletter-authority-engineering.jpg";
@@ -275,10 +274,7 @@ function writeOutputs(posts) {
   const tracks = posts.map(p => ({id:p.id,order:p.sort,label:p.label,title:p.title,topic:p.topic,url:`insights/${p.slug}/`,image:p.image,publishDate:p.publishDate,summary:p.summary,sections:[{heading:"Core Argument",body:p.summary}]}));
   fs.mkdirSync(path.dirname(dataPath),{recursive:true}); fs.writeFileSync(dataPath,`// Generated from content/insights/*.md\nwindow.insightTracks=${JSON.stringify(tracks,null,2)};\nvar newsletterBodies={};\n`);
   fs.mkdirSync(path.dirname(manifestPath),{recursive:true}); fs.writeFileSync(manifestPath,JSON.stringify(posts.map(p => ({id:p.id,slug:p.slug,url:`/insights/${p.slug}/`,canonical:p.canonical,title:p.title,metaTitle:p.metaTitle,publishDate:p.publishDate,updatedDate:p.updatedDate,redirectSlugs:p.oldSlugs})),null,2)+"\n");
-  const issueRoutes = Object.fromEntries(posts.map(p => [p.id,`/insights/${p.slug}/`])), pathRoutes = {};
-  posts.forEach(p => p.oldSlugs.forEach(s => { pathRoutes[`/insights/${s}`]=`/insights/${p.slug}/`; pathRoutes[`/insights/${s}/index.html`]=`/insights/${p.slug}/`; }));
-  const fn = `// Generated.\nfunction handler(event){var r=event.request,u=String(r.uri||"").replace(/\\/+$/,"");var q=${JSON.stringify(issueRoutes)},p=${JSON.stringify(pathRoutes)};if(u==="/insights/post"||u==="/insights/post/index.html"){var x=r.querystring&&r.querystring.issue,i=x&&x.value?x.value:"";if(q[i])return{statusCode:301,statusDescription:"Moved Permanently",headers:{location:{value:q[i]},"cache-control":{value:"public, max-age=86400"}}};return r}if(p[u])return{statusCode:301,statusDescription:"Moved Permanently",headers:{location:{value:p[u]},"cache-control":{value:"public, max-age=86400"}}};return r}`;
-  fs.mkdirSync(path.dirname(redirectPath),{recursive:true}); fs.writeFileSync(redirectPath,fn);
+  const issueRoutes = Object.fromEntries(posts.map(p => [p.id,`/insights/${p.slug}/`]));
   fs.mkdirSync(path.dirname(legacyPath),{recursive:true}); fs.writeFileSync(legacyPath,`<!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><link rel="canonical" href="${SITE_URL}/insights/"><title>Insight moved | ControlPointAI</title><script>var m=${JSON.stringify(issueRoutes)},i=new URLSearchParams(location.search).get("issue");if(m[i])location.replace(m[i])</script></head><body><p><a href="/insights/">Browse Insights</a></p></body></html>`);
 }
 const posts = loadPosts(); writeOutputs(posts); console.log(`Generated ${posts.length} static Insight pages and redirect routes.`);

@@ -41,7 +41,7 @@ Use the Decap editorial workflow for drafts and review. Use `publish_date` for p
 
 Case studies include a `key_principles` list for the sidebar bullets. Case-study pages that have generated markers are rebuilt from `content/case-studies` during `npm run build`, then uploaded by the GitHub Actions deploy workflow. Case Study 1 is currently wired to this build path.
 
-Case studies are now content-driven. A Decap publish to `main` rebuilds each Markdown file in `content/case-studies`, regenerates its public page under `case-studies/<live_path>/`, refreshes the Case Studies index, uploads the generated files, requests a CloudFront invalidation, and holds the deployment briefly for propagation. Once the GitHub Actions deploy run is green, the public site should reflect the change; if a browser tab still shows the old copy, force-refresh the tab.
+Case studies are now content-driven. A Decap publish to `main` rebuilds each Markdown file in `content/case-studies`, regenerates its public page under `case-studies/<live_path>/`, refreshes the Case Studies index, and deploys the generated site to Firebase Hosting. Once the GitHub Actions deploy run is green, the public site should reflect the change; if a browser tab still shows the old copy, force-refresh the tab.
 
 For the PDF-style report look:
 
@@ -54,6 +54,15 @@ For the PDF-style report look:
 New featured case studies only need a `Live Page Path`, `Sort Order`, index card fields, and body content. The build creates the public page and index card automatically.
 
 If a case-study preview works in Decap but the entry does not appear on the public Case Studies tab, check two things: the Decap entry must be published out of `Unpublished Entries`, and `Visibility on Case Studies Tab` must be set to `Featured - show on Case Studies tab`. A `Draft` case-study entry can still have a direct generated page, but it is intentionally hidden from the public index and previous/next navigation.
+
+## Hosting and server-side services
+
+- Firebase Hosting serves the public site and custom domain.
+- GitHub Actions builds, validates, and deploys `main` after each published CMS change.
+- The Cloudflare Worker in `cloudflare/controlpointai-services` handles Decap's GitHub login and stores contact inquiries in D1.
+- Authorized repository collaborators can review contact submissions through the Worker's protected `/inquiries` page.
+
+Neither publishing nor the contact form depends on a paid cloud plan.
 
 ## Framework Notes
 
