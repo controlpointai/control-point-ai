@@ -5,6 +5,8 @@ workers_dev = true
 
 [vars]
 ALLOWED_ORIGINS = "https://controlpointai.org,https://www.controlpointai.org,https://controlpointai-site-2026.web.app,http://127.0.0.1:4173,http://localhost:4173"
+NOTIFICATION_EMAIL = "wayne@controlpointai.org"
+NOTIFICATION_FROM = "ControlPointAI Website <website@notify.controlpointai.org>"
 
 [observability]
 enabled = true

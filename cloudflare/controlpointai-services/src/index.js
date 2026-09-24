@@ -1,6 +1,7 @@
 const GITHUB_AUTHORIZE_URL = "https://github.com/login/oauth/authorize";
 const GITHUB_TOKEN_URL = "https://github.com/login/oauth/access_token";
 const GITHUB_API = "https://api.github.com";
+const RESEND_EMAIL_URL = "https://api.resend.com/emails";
 const OAUTH_COOKIE = "cpai_oauth_state";
 const SESSION_COOKIE = "cpai_admin_session";
 const REPOSITORY = "controlpointai/control-point-ai";
@@ -229,6 +230,51 @@ function cleanText(value, maxLength) {
   return String(value || "").replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, maxLength);
 }
 
+async function sendInquiryNotification(env, inquiry) {
+  if (!env.RESEND_API_KEY || !env.NOTIFICATION_EMAIL || !env.NOTIFICATION_FROM) {
+    console.warn("Inquiry email notification is not configured");
+    return false;
+  }
+  const requestLabel = inquiry.concern || "Website inquiry";
+  const response = await fetch(RESEND_EMAIL_URL, {
+    method: "POST",
+    headers: {
+      authorization: "Bearer " + env.RESEND_API_KEY,
+      "content-type": "application/json",
+      "idempotency-key": "contact-inquiry/" + inquiry.id,
+    },
+    body: JSON.stringify({
+      from: env.NOTIFICATION_FROM,
+      to: [env.NOTIFICATION_EMAIL],
+      reply_to: inquiry.email,
+      subject: "New ControlPointAI inquiry: " + requestLabel,
+      text: [
+        "A new inquiry was submitted through controlpointai.org.",
+        "",
+        "Name: " + inquiry.name,
+        "Email: " + inquiry.email,
+        "Request: " + requestLabel,
+        "",
+        "Message:",
+        inquiry.workflow,
+        "",
+        "Reply to this email to respond directly to " + inquiry.name + ".",
+      ].join("\n"),
+      html: "<h1>New ControlPointAI inquiry</h1>"
+        + "<p><strong>Name:</strong> " + escapeHtml(inquiry.name) + "<br>"
+        + "<strong>Email:</strong> <a href=\"mailto:" + encodeURIComponent(inquiry.email) + "\">" + escapeHtml(inquiry.email) + "</a><br>"
+        + "<strong>Request:</strong> " + escapeHtml(requestLabel) + "</p>"
+        + "<p style=\"white-space:pre-wrap\">" + escapeHtml(inquiry.workflow) + "</p>"
+        + "<p>Reply to this email to respond directly to " + escapeHtml(inquiry.name) + ".</p>",
+    }),
+  });
+  if (!response.ok) {
+    console.error("Resend notification failed", response.status, await response.text());
+    return false;
+  }
+  return true;
+}
+
 async function submitContact(request, env) {
   const cors = corsHeaders(request, env);
   const origin = request.headers.get("origin") || "";
@@ -255,9 +301,15 @@ async function submitContact(request, env) {
   if (Number(recent && recent.count || 0) >= 3) {
     return json({ ok: false, error: "Please wait before sending another inquiry" }, 429, cors);
   }
+  const id = crypto.randomUUID();
   await env.INQUIRIES_DB.prepare(
     "INSERT INTO inquiries (id, submitted_at, name, email, concern, workflow, status) VALUES (?, datetime('now'), ?, ?, ?, ?, 'new')",
-  ).bind(crypto.randomUUID(), name, email, concern, workflow).run();
+  ).bind(id, name, email, concern, workflow).run();
+  try {
+    await sendInquiryNotification(env, { id, name, email, concern, workflow });
+  } catch (error) {
+    console.error("Inquiry notification error", error);
+  }
   return json({ ok: true }, 200, cors);
 }
 
@@ -309,6 +361,7 @@ export default {
           service: "controlpointai-services",
           oauthConfigured: Boolean(env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET && env.STATE_SECRET),
           inquiriesConfigured: Boolean(env.INQUIRIES_DB),
+          emailConfigured: Boolean(env.RESEND_API_KEY && env.NOTIFICATION_EMAIL && env.NOTIFICATION_FROM),
         });
       }
       if (url.pathname === "/auth" && request.method === "GET") return startAuth(request, env, "cms");
