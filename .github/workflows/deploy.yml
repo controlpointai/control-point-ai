@@ -1,4 +1,4 @@
-name: Deploy site to S3 and CloudFront
+name: Deploy site to Firebase Hosting
 on:
   push:
     branches: [main]
@@ -6,7 +6,6 @@ on:
     - cron: "17 * * * *"
   workflow_dispatch:
 permissions:
-  id-token: write
   contents: read
 concurrency:
   group: controlpointai-production
@@ -18,44 +17,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: aws-actions/configure-aws-credentials@v6.1.0
-        with:
-          role-to-assume: arn:aws:iam::953199921486:role/controlpointai-role
-          aws-region: us-east-2
-      - name: Build and validate
+      - name: Build, validate, and prepare hosting bundle
         env:
           SITE_URL: https://controlpointai.org
-        run: npm run build
-      - name: Sync files to S3
-        run: |
-          aws s3 sync . s3://control-point-ai-bucket --delete --cache-control "public, max-age=0, must-revalidate" \
-            --exclude ".git/*" --exclude ".github/*" --exclude ".gitignore" --exclude ".gitattributes" --exclude "README.md" \
-            --exclude "aws/*" --exclude "cloudfront/*" --exclude "content/*" --exclude "docs/*" \
-            --exclude "scripts/*" --exclude "tmp/*" --exclude "package.json"
-      - name: Cache public assets
-        run: |
-          aws s3 cp assets s3://control-point-ai-bucket/assets --recursive \
-            --cache-control "public, max-age=3600, must-revalidate"
-      - name: Publish directory index objects
-        run: |
-          set -euo pipefail
-          mapfile -t pages < <(find . -type f -name index.html -not -path "./.git/*" -not -path "./.github/*" -not -path "./aws/*" -not -path "./cloudfront/*" -not -path "./node_modules/*" -not -path "./tmp/*" | sed 's#^./##;s#/index.html$##' | sort)
-          for page in "${pages[@]}"; do
-            [[ -n "$page" && "$page" != "index.html" ]] || continue
-            for key in "$page/index.html" "$page/" "$page"; do
-              aws s3api put-object --bucket control-point-ai-bucket --key "$key" --body "$page/index.html" --content-type "text/html; charset=utf-8" --cache-control "public, max-age=0, must-revalidate" >/dev/null
-            done
-          done
-      - name: Configure permanent legacy redirects
-        env:
-          CLOUDFRONT_DISTRIBUTION_ID: E3BX9NW5W3KZEA
-        run: bash scripts/deploy-cloudfront-function.sh
-      - name: Invalidate CloudFront
-        run: |
-          ID=$(aws cloudfront create-invalidation --distribution-id E3BX9NW5W3KZEA --paths "/*" --query Invalidation.Id --output text)
-          aws cloudfront wait invalidation-completed --distribution-id E3BX9NW5W3KZEA --id "$ID"
+        run: npm run build:hosting
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CONTROLPOINTAI_SITE_2026 }}"
+          channelId: live
+          projectId: controlpointai-site-2026
       - name: Smoke-test production
         env:
-          SITE_URL: https://controlpointai.org
+          SITE_URL: https://controlpointai-site-2026.web.app
           LEGACY_INSIGHT_ID: ai9
         run: npm run audit:live

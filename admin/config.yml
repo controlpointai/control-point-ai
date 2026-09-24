@@ -11,8 +11,8 @@ publish_mode: editorial_workflow
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-site_url: "https://controlpointai.org"
-display_url: "https://controlpointai.org"
+site_url: "https://controlpointai-site-2026.web.app"
+display_url: "https://controlpointai-site-2026.web.app"
 logo_url: "/assets/images/controlpointai-admin-logo-transparent.png"
 
 collections:
