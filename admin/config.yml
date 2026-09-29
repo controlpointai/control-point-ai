@@ -11,8 +11,8 @@ publish_mode: editorial_workflow
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-site_url: "https://controlpointai-site-2026.web.app"
-display_url: "https://controlpointai-site-2026.web.app"
+site_url: "https://controlpointai.org"
+display_url: "https://controlpointai.org"
 logo_url: "/assets/images/controlpointai-admin-logo-transparent.png"
 
 collections:
@@ -21,6 +21,7 @@ collections:
     label_singular: "Insight"
     folder: "content/insights"
     create: true
+    delete: false
     slug: "{{fields.id}}"
     summary: "{{fields.label}} - {{title}}"
     preview_path: "insights/post/index.html?issue={{fields.id}}"
@@ -39,7 +40,7 @@ collections:
           - { label: "Operations", value: "operations" }
           - { label: "Analysis", value: "analysis" }
           - { label: "Interface", value: "interface" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false, default: "/assets/images/uploads/newsletter-authority-engineering.jpg" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false, default: "/assets/images/uploads/newsletter-authority-engineering.jpg", hint: "Upload or select an image here. The editor preview shows the selected file immediately; the public URL updates after the automatic deployment finishes." }
       - { label: "Summary", name: "summary", widget: "text", hint: "Buyer-facing archive summary. Keep this concise." }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -120,6 +121,7 @@ collections:
     label_singular: "Case Study"
     folder: "content/case-studies"
     create: true
+    delete: false
     slug: "{{slug}}"
     summary: "{{title}}"
     preview_path: "case-studies/{{fields.live_path}}/index.html"

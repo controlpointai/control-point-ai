@@ -28,8 +28,11 @@ jobs:
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CONTROLPOINTAI_SITE_2026 }}"
           channelId: live
           projectId: controlpointai-site-2026
-      - name: Smoke-test production
+      - name: Smoke-test Firebase Hosting origin
         env:
           SITE_URL: https://controlpointai-site-2026.web.app
-          LEGACY_INSIGHT_ID: ai9
+        run: npm run audit:live
+      - name: Smoke-test production domain
+        env:
+          SITE_URL: https://controlpointai.org
         run: npm run audit:live

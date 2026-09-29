@@ -9,5 +9,58 @@
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      (function () {
+        var CMS = window.CMS;
+        var h = window.h;
+
+        if (!h || !CMS) return;
+
+        function insightPreview(props) {
+          var entry = props.entry;
+          var data = entry.getIn(["data"]);
+          var imagePath = data && data.get("image");
+          var imageAsset = imagePath ? props.getAsset(imagePath) : null;
+          var author = (data && data.get("author")) || "Wayne Couch";
+          var publishDate = data && data.get("publish_date");
+          var byline = "By " + author;
+
+          if (publishDate) {
+            var parsedDate = new Date(publishDate);
+            if (!Number.isNaN(parsedDate.getTime())) {
+              byline += " \u00b7 " + parsedDate.toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+              });
+            }
+          }
+
+          return h(
+            "main",
+            { className: "article-wrap" },
+            h(
+              "article",
+              { className: "article" },
+              h("p", { className: "eyebrow" }, (data && data.get("label")) || "Insight"),
+              h("h1", null, (data && data.get("title")) || "Untitled Insight"),
+              h("p", { className: "lead" }, (data && data.get("summary")) || ""),
+              h("p", null, byline),
+              imageAsset
+                ? h("img", {
+                    className: "article-hero-image",
+                    src: imageAsset.toString(),
+                    alt: ""
+                  })
+                : null,
+              props.widgetFor("body")
+            )
+          );
+        }
+
+        CMS.registerPreviewStyle("/assets/styles/site.css");
+        CMS.registerPreviewTemplate("insights", insightPreview);
+      })();
+    </script>
   </body>
 </html>

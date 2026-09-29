@@ -288,6 +288,23 @@ window.insightTracks=[
         "body": "ControlPointAI’s first monthly newsletter examines the shift from observing AI governance problems to testing operational controls in practice. It explores authority, evidence, human judgment, and the Piping UT Demonstration as a real-world test of whether AI controls actually work when decisions matter."
       }
     ]
+  },
+  {
+    "id": "monthly02",
+    "order": 1790721180000,
+    "label": "Monthly Newsletter  - October 2026",
+    "title": "AI Is Not the Strategy: Keeping Humans in Control",
+    "topic": "operations",
+    "url": "insights/ai-is-not-the-strategy-keeping-humans-in-control/",
+    "image": "/assets/images/uploads/chatgpt-image-sep-29-2026-05_43_35-pm.png",
+    "publishDate": "2026-09-29T22:33:00.000Z",
+    "summary": "ControlPointAI examines the growing divide between AI’s extraordinary promise and its potential risks—and why both make human control essential. This month’s issue connects lessons from the Piping UT Demonstration with our new EU AI Act work to explore how data flows, decision authority, evidence, and meaningful human oversight can be engineered into real operational processes.",
+    "sections": [
+      {
+        "heading": "Core Argument",
+        "body": "ControlPointAI examines the growing divide between AI’s extraordinary promise and its potential risks—and why both make human control essential. This month’s issue connects lessons from the Piping UT Demonstration with our new EU AI Act work to explore how data flows, decision authority, evidence, and meaningful human oversight can be engineered into real operational processes."
+      }
+    ]
   }
 ];
 var newsletterBodies={};
