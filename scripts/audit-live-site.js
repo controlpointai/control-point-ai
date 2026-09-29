@@ -81,7 +81,7 @@ function legacyRoutes(html) {
 
   const expectedLegacyHtml = fs.readFileSync(path.join(ROOT, "insights", "post", "index.html"), "utf8");
   const expectedRoutes = legacyRoutes(expectedLegacyHtml);
-  const legacyResponse = await request(`${SITE_URL}/insights/post/index.html?issue=deployment-smoke-test`, { redirect: "manual" });
+  const legacyResponse = await request(`${SITE_URL}/insights/post/index.html?issue=deployment-smoke-test`);
   ok(legacyResponse.ok, `Legacy Insight route returned ${legacyResponse.status}`);
   const legacyHtml = await legacyResponse.text();
   const liveRoutes = legacyRoutes(legacyHtml);
