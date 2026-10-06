@@ -20,6 +20,10 @@ async function request(url, options = {}) {
 function ok(value, message) { if (!value) throw new Error(message); }
 function location(response) { return response.headers.get("location") || ""; }
 function isRedirect(response) { return [301, 302, 307, 308].includes(response.status); }
+function revalidatesImmediately(response) {
+  const value = (response.headers.get("cache-control") || "").toLowerCase();
+  return /(?:^|,)\s*max-age=0(?:,|$)/.test(value) && value.includes("must-revalidate");
+}
 function sitemapUrls(xml) { return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]); }
 function legacyRoutes(html) {
   const match = html.match(/var m=(\{.*?\}),i=/s);
@@ -30,6 +34,15 @@ function legacyRoutes(html) {
   const expectedUrls = sitemapUrls(expectedSitemap);
   const sitemapResponse = await request(`${SITE_URL}/sitemap.xml`);
   ok(sitemapResponse.ok, `Sitemap returned ${sitemapResponse.status}`);
+  const immediatePaths = ["/", "/services/", "/assets/styles/site.css", "/admin/config.yml"];
+  for (const pathname of immediatePaths) {
+    const response = await request(`${SITE_URL}${pathname}`);
+    ok(response.ok, `${pathname} returned ${response.status} during the cache check`);
+    ok(
+      revalidatesImmediately(response),
+      `${pathname} can be served stale; received Cache-Control: ${response.headers.get("cache-control") || "missing"}`,
+    );
+  }
   const sitemap = await sitemapResponse.text();
   const urls = sitemapUrls(sitemap);
   ok(expectedUrls.length, "No expected URLs in the local sitemap");
@@ -101,5 +114,5 @@ function legacyRoutes(html) {
     const response = await request(`https://www.${host}/`, { redirect: "manual" });
     ok(isRedirect(response) && location(response).startsWith(SITE_URL), "www hostname is not redirected");
   }
-  console.log(`Live smoke test passed for revision ${deploymentStatus.revision}, ${urls.length} sitemap URLs, article media, and canonical redirect cases.`);
+  console.log(`Live smoke test passed for revision ${deploymentStatus.revision}, ${urls.length} sitemap URLs, immediate cache revalidation, article media, and canonical redirect cases.`);
 })().catch((error) => { console.error(error.stack || error); process.exit(1); });
