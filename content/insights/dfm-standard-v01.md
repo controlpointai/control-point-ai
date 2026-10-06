@@ -2,13 +2,20 @@
 id: dfm-standard-v01
 order: 12
 label: standard
-title: ControlPointAI Data-Flow Mapping Standard — Version 0.1
+title: ControlPointAI Data-Flow Mapping Standard — Version 2.0
 publish_date: 2026-08-08T17:59:00.000-04:00
+insights_tab_visibility: show
 topic: runtime
 image: ""
 summary: ControlPointAI Version 0.1 establishes the initial controlled standard
   for mapping AI-enabled data flows, system boundaries, authority, control
   points, evidence, and configuration-controlled engineering drawings.
+author: Wayne Couch
+slug_mode: automatic
+meta_title_mode: automatic
+meta_description_mode: automatic
+related_service: ai-data-flow-mapping
+cta: request-data-flow-mapping
 ---
 # ControlPointAI Data-Flow Mapping Standard
 
