@@ -2,19 +2,27 @@
 id: dfm-standard-v01
 order: 12
 label: standard
-title: ControlPointAI Data-Flow Mapping Standard — Version 0.1
-publish_date: 2026-08-08T17:59:00.000-04:00
+title: ControlPointAI Data-Flow Mapping Standard — Version 2.0
+publish_date: 2026-10-06T07:37:00.000-04:00
+insights_tab_visibility: show
 topic: runtime
 image: ""
-summary: ControlPointAI Version 0.1 establishes the initial controlled standard
-  for mapping AI-enabled data flows, system boundaries, authority, control
-  points, evidence, and configuration-controlled engineering drawings.
+summary: ControlPointAI’s Data-Flow Mapping Standard Version 2.0 establishes
+  consistent conventions for reading, assessing, and using our drawings—making
+  information flows, system boundaries, human authority, control points, and
+  supporting evidence clear and traceable.
+author: Wayne Couch
+slug_mode: automatic
+meta_title_mode: automatic
+meta_description_mode: automatic
+related_service: ai-data-flow-mapping
+cta: request-data-flow-mapping
 ---
 # ControlPointAI Data-Flow Mapping Standard
 
-**Version:** 0.1  
-**Status:** Controlled Draft  
-**Issued:** August 8, 2026  
+**Version:** 2.0
+**Status:** Approved
+**Issued:** October 6, 2026  
 **POAM Item:** 2-1  
 **Applies to:** Phase 2 Prototype Engineering Package  
 **Owner:** ControlPointAI
@@ -23,7 +31,7 @@ summary: ControlPointAI Version 0.1 establishes the initial controlled standard
 
 ## 1. Purpose
 
-This standard defines the minimum conventions for creating ControlPointAI data-flow mapping products. It establishes a repeatable engineering method for showing how data, AI-generated work, decisions, authority, execution, and evidence move through an operational system.
+This public standard defines the conventions for reading, assessing, and using ControlPointAI data-flow mapping products. It establishes consistent expectations for showing how information, AI analysis outputs, decisions, human authority, execution, and evidence relate within the mapped operational scope
 
 The standard is intended to make ControlPointAI drawings understandable, traceable, configuration-controlled, and suitable for later comparison between the approved design, the as-built configuration, and the as-executed operating path.
 
@@ -73,7 +81,7 @@ Every controlled drawing must carry a drawing number, revision, status, date, an
 
 ## 4. Drawing Hierarchy
 
-ControlPointAI mapping proceeds from broad context to increasingly detailed controlled products.
+The drawing set may contain the following product types. Each drawing identifies its scope and level of detail; the table describes what readers can expect from each product, rather than a required development sequence.
 
 ### Level 1 — System Context Drawing
 
@@ -81,7 +89,7 @@ Shows the system boundary, major systems/applications, human actors, external in
 
 ### Level 2 — Detailed Data-Flow Drawings
 
-Decomposes each critical flow into source, destination, data/object, interface, direction, trigger, and operational purpose.
+Shows critical flows in greater detail, including their source, destination, information content, interfaces, and operational purpose.
 
 ### Level 3 — Authority / Control Overlay
 
@@ -103,7 +111,7 @@ Every controlled drawing should include, as applicable:
 - Human actors when they provide input, review, approval, override, escalation, risk acceptance, or execution authority.
 - Directional arrows for every primary operational data flow.
 - Unique flow identifiers for controlled flows.
-- Control-point markers where runtime validation is required before consequential action.
+- Control-point markers where applicable conditions and required human authority must be verified before consequential action.
 - Evidence / record flows when reconstructability is part of the governed process.
 - A legend defining symbols and line conventions used on the drawing.
 - A controlled title block containing drawing number, title, revision, status, date, sheet, scale or NTS, baseline, and classification / handling designation as applicable.
@@ -112,11 +120,7 @@ Every controlled drawing should include, as applicable:
 
 ## 6. Flow Identification and Conventions
 
-Primary operational flows are assigned sequential identifiers using the prefix **F-**.
-
-Evidence or record flows use the prefix **E-**.
-
-Control-point identifiers may be added in later drawings using a **CP-** prefix when a reusable or separately registered control point is established.
+The drawing legend defines the identifiers used on that drawing. F- identifies an operational flow, E- an evidence or record flow, and CP- a named control point where those conventions are used. Other identifiers are acceptable when clearly defined in the legend and used consistently.
 
 ### Standard identifiers
 
@@ -144,9 +148,7 @@ Bidirectional exchange should normally be represented as two separately identifi
 
 ## 7. Required Flow Attributes
 
-The system context drawing may show only the flow identifier and a concise label.
-
-The detailed drawing set or associated flow register should capture, at minimum, the following attributes for each critical flow:
+A context drawing may show only a flow identifier and concise label. For critical flows, the detailed drawing or its supporting documentation should provide the following information as applicable to the stated scope. Readers should be able to determine what moves, why it moves, and what authority, controls, and evidence apply.
 
 ### Flow ID
 
@@ -202,17 +204,15 @@ What record is required to show that the flow and associated control operated as
 
 ## 9. Authority and Control-Point Representation
 
-The data-flow drawing establishes where work and information move.
-
-Authority mapping is then applied to the critical flows rather than inferred from system ownership or box placement.
+Information movement does not, by itself, establish authority. The drawing or its supporting documentation identifies the relevant decision and execution authority for consequential transitions as follows:
 
 ### Decision Authority
 
-Identifies who or what is permitted to make the governing decision.
+Decision authority identifies the accountable human role or organization authorized to make the governing decision. AI analysis may support that decision within its stated scope.
 
 ### Execution Authority
 
-Identifies who or what may cause the approved action to take effect.
+Execution authority identifies the role or organization authorized to release the approved action for execution.
 
 ### Risk Acceptance
 
@@ -224,7 +224,7 @@ Human review, approval, denial, hold, escalation, and override are shown explici
 
 ### Control Points
 
-A control point represents an execution-authority layer that validates applicable conditions before consequential action is released.
+A control point marks where applicable conditions and required approvals must be verified before consequential action proceeds.
 
 A control point should identify the conditions it evaluates, such as:
 
@@ -242,14 +242,12 @@ A control point should identify the conditions it evaluates, such as:
 
 ## 10. Evidence and Reconstructability
 
-Where a governed action can create material effect, the mapping should identify the evidence needed to reconstruct the execution.
-
-Evidence is not treated as a substitute for control. It demonstrates what inputs, recommendations, authority state, approvals, denials, overrides, and actions actually occurred.
+Where a governed action can create material effect, the mapping should identify the evidence needed to reconstruct the execution within its stated scope. Evidence is not a substitute for control; it supports review of the relevant inputs, AI analysis outputs, authority, human approvals, and actions that occurred.
 
 Relevant evidence may include:
 
 - input or request record
-- AI-generated recommendation or instruction
+- AI analysis output used to support the decision, where applicable.
 - active configuration or version information where material
 - authority and policy state evaluated at the control point
 - human approval, denial, hold, escalation, or override when applicable
@@ -289,18 +287,7 @@ A material change to a system boundary, critical flow, interface, authority path
 
 ## 12. Drawing Development Sequence
 
-1. Define the operational purpose and scenario.
-2. Establish the system boundary and operating assumptions.
-3. Identify systems, applications, AI components, external interfaces, and human actors.
-4. Map the primary operational data flows.
-5. Assign unique flow identifiers.
-6. Decompose critical flows and capture required attributes.
-7. Map decision and execution authority to the critical flows.
-8. Identify required control points, human intervention, override, and recovery paths.
-9. Identify required evidence or record flows.
-10. Reconcile the drawing set into the as-designed baseline.
-11. Update the controlled set to reflect the approved as-built configuration.
-12. Use runtime evidence to compare the as-executed path with the approved baseline.
+Development procedures are outside the scope of this public standard. The following checklist helps readers assess the content and limitations of an issued drawing.
 
 ---
 
@@ -324,34 +311,17 @@ Before a controlled drawing is issued, confirm:
 
 ## 14. Phase 2 Prototype Application
 
-The first application of this standard will be the ControlPointAI Prototype Engineering Package for an **AI-enabled payment-instruction workflow**.
+The issued piping UT demonstration drawing, CP-UT-DFD-001, Revision A, illustrates the transition from work-package initiation at Node 1 to inspection-basis and criteria determination at Node 2. It provides a practical example of information movement, AI assistance, human technical authority, and controlled progression within the scope shown.
 
-The prototype will use a familiar personal-finance scenario to demonstrate how AI-generated payment actions move from input and planning systems through an authority / control point before reaching bank or payment systems.
+The drawing should be read with its legend, title block, and stated scope. It covers the Node 1 to Node 2 transition; it does not represent the complete UT inspection process or establish authority beyond that scope.
 
-**CP-AI-001** will serve as the system context drawing.
-
-Follow-on products will:
-
-- decompose its primary flows
-- establish the as-designed configuration
-- map authority and control points
-- establish the as-built baseline
-- demonstrate runtime evidence and configuration change
-
----
 
 ## 15. Controlled Draft Status
 
-**Version 0.1 is the initial controlled draft issued to satisfy Phase 2 POAM Item 2-1.**
-
-It is intentionally concise and will be revised based on practical use during development of the prototype engineering package.
-
-The purpose of this first issue is not to claim that the methodology is finished.
-
-The purpose is to establish a controlled starting point, apply it to a real prototype, measure what works, identify what does not, and update the standard through disciplined configuration control.
+Version 2.0 is an update to Version 0.1, issued August 8, 2026. This public standard establishes drawing conventions and deliverable expectations; internal development procedures remain outside its scope. The standard will continue to be revised based on practical use.
 
 ---
 
 **ControlPointAI**  
-**Data-Flow Mapping Standard — Version 0.1 Controlled Draft**  
-**Issued August 8, 2026**
+**Data-Flow Mapping Standard — Version 2.0 **  
+**Issued October 6, 2026**
