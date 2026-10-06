@@ -36,6 +36,12 @@ for (const file of htmlFiles()) {
   const pathname = canonicalPathForFile(file);
   pages.push({ file, html, pathname, canonical: `${SITE_URL}${pathname}` });
 }
+const insightsManifestPath = path.join(root, "tmp", "insights-manifest.json");
+const intentionallyHiddenPaths = fs.existsSync(insightsManifestPath)
+  ? new Set(JSON.parse(fs.readFileSync(insightsManifestPath, "utf8"))
+    .filter((post) => post.showOnInsightsTab === false)
+    .map((post) => post.url))
+  : new Set();
 const titles = new Map(), canonicals = new Map(), inbound = new Map(pages.map((page) => [page.pathname, 0]));
 for (const page of pages) {
   const pageTitle = title(page.html);
@@ -89,5 +95,7 @@ ok(new Set(sitemapUrls).size === sitemapUrls.length, "Sitemap contains duplicate
 ok(sitemapUrls.length === pages.length, `Sitemap/page count mismatch: ${sitemapUrls.length} vs ${pages.length}`);
 for (const page of pages) ok(sitemapUrls.includes(page.canonical), `Sitemap missing ${page.canonical}`);
 for (const url of sitemapUrls) ok(canonicals.has(url), `Sitemap includes noncanonical or noindex URL: ${url}`);
-for (const [pathname, count] of inbound) if (pathname !== "/") ok(count > 0, `Orphan canonical page: ${pathname}`);
+for (const [pathname, count] of inbound) {
+  if (pathname !== "/" && !intentionallyHiddenPaths.has(pathname)) ok(count > 0, `Orphan canonical page: ${pathname}`);
+}
 console.log(`Validated ${pages.length} canonical pages, metadata, JSON-LD, internal links, sitemap coverage, and accessibility basics.`);

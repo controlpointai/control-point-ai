@@ -21,7 +21,7 @@ for (const file of fs.readdirSync(contentDir).filter((name) => name.endsWith(".m
   };
 }
 
-const posts = manifest.map((item) => ({ ...item, ...(sourceById[item.id] || {}) }));
+const posts = manifest.filter((item) => item.showOnInsightsTab !== false).map((item) => ({ ...item, ...(sourceById[item.id] || {}) }));
 const byId = Object.fromEntries(posts.map((post) => [post.id, post]));
 
 function tokens(value) {
@@ -55,12 +55,19 @@ function pageSettings(name) {
   return readJson(path.join(root, "content", "site-seo", `${name}.json`), {});
 }
 
-function cardsSection(postsForPage, eyebrow, heading, intro) {
+function cardsSection(postsForPage, eyebrow, heading, intro, summaryLimit = 0) {
+  const cardSummary = (value) => {
+    const text = String(value || "").trim();
+    if (!summaryLimit || text.length <= summaryLimit) return text;
+    const sliceEnd = Math.max(summaryLimit - 3, 1);
+    const shortened = text.slice(0, sliceEnd).replace(/\s+\S*$/, "").trim();
+    return `${shortened || text.slice(0, sliceEnd).trim()}...`;
+  };
   const cards = postsForPage.map((post) => [
     '<article class="card compact-card">',
     `  <span class="badge">${escapeHtml(post.label || "Insight")}</span>`,
     `  <h3>${escapeHtml(post.title)}</h3>`,
-    post.summary ? `  <p>${escapeHtml(post.summary)}</p>` : "",
+    post.summary ? `  <p>${escapeHtml(cardSummary(post.summary))}</p>` : "",
     `  <a href="${escapeHtml(post.url)}">Read insight</a>`,
     "</article>",
   ].filter(Boolean).join("\n")).join("\n");
@@ -88,8 +95,9 @@ function insertBeforeLastSection(html) {
 const fixedPages = [
   {
     file: "index.html", key: "homepage", block: "homepage-related-insights",
-    eyebrow: "Latest Insights", heading: "Continue with the latest ControlPointAI analysis.",
-    intro: "Read the newest work on AI data flows, execution authority, evidence, and accountable human review.",
+    eyebrow: "Latest Insights", heading: "Latest ControlPointAI analysis.",
+    intro: "New work on AI data flows, authority, and accountable human review.",
+    summaryLimit: 145,
     preferredTopics: [], preferredService: "ai-data-flow-mapping",
   },
   {
@@ -117,7 +125,7 @@ for (const page of fixedPages) {
     preferredTopics: page.preferredTopics,
     preferredService: page.preferredService,
   });
-  const section = cardsSection(chosen, page.eyebrow, page.heading, page.intro);
+  const section = cardsSection(chosen, page.eyebrow, page.heading, page.intro, page.summaryLimit);
   html = replaceGeneratedBlock(html, page.block, section, insertBeforeLastSection);
   fs.writeFileSync(file, html);
 }

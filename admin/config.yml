@@ -32,6 +32,14 @@ collections:
       - { label: "Label", name: "label", widget: "string", default: "Issue 11" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "publish_date", widget: "datetime", required: false, hint: "Optional. Future-dated posts stay hidden until a scheduled deploy runs after this time." }
+      - label: "Visibility on Insights Tab"
+        name: "insights_tab_visibility"
+        widget: "select"
+        default: "show"
+        hint: "Choose Hide to remove an older newsletter from the Insights tab and recommendation cards without deleting its page or breaking existing links."
+        options:
+          - { label: "Show on Insights tab", value: "show" }
+          - { label: "Hide from Insights tab", value: "hide" }
       - label: "Topic"
         name: "topic"
         widget: "select"
