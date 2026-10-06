@@ -411,9 +411,12 @@ function renderNewsletterArchive(filter = activeArchiveFilter, sort = activeArch
     .sort((a, b) => (sort === "oldest" ? a.order - b.order : b.order - a.order));
   host.innerHTML = visible
     .map(
-      (item) => `
+      (item) => {
+        const previewImage = item.previewImage || item.image || "assets/images/controlpointai-admin-logo-transparent.png";
+        const fallbackClass = item.image ? "" : " card-media-fallback";
+        return `
         <article class="card">
-          <img class="card-media" src="${assetPath(item.image)}" alt="">
+          <img class="card-media${fallbackClass}" src="${assetPath(previewImage)}" alt="">
           <span class="badge">${item.label}</span>
           <h3>${item.title}</h3>
           <p>${item.summary}</p>
@@ -421,7 +424,8 @@ function renderNewsletterArchive(filter = activeArchiveFilter, sort = activeArch
             <a class="button ghost" href="${prefix}${item.url}">Read ${item.title}</a>
           </div>
         </article>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -451,7 +455,7 @@ function renderInsightPost() {
       <p class="eyebrow">${item.label}</p>
       <h1>${item.title}</h1>
       <p class="lead">${item.summary}</p>
-      <img class="article-hero-image" src="${assetPath(item.image)}" alt="">
+      ${item.image ? `<img class="article-hero-image" src="${assetPath(item.image)}" alt="">` : ""}
       ${renderNewsletterBody(item)}
       <div class="quote-callout">ControlPointAI principle: map where AI-generated work moves, then place Control Points before operational effects propagate.</div>
       <div class="case-nav">

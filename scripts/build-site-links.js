@@ -8,6 +8,7 @@ const manifestPath = path.join(root, "tmp", "insights-manifest.json");
 if (!fs.existsSync(manifestPath)) throw new Error("Run the Phase 1 Insight build before sitewide links");
 const manifest = readJson(manifestPath, []);
 const contentDir = path.join(root, "content", "insights");
+const CARD_FALLBACK_IMAGE = "/assets/images/controlpointai-admin-logo-transparent.png";
 
 const sourceById = {};
 for (const file of fs.readdirSync(contentDir).filter((name) => name.endsWith(".md") && !name.startsWith("_"))) {
@@ -17,6 +18,7 @@ for (const file of fs.readdirSync(contentDir).filter((name) => name.endsWith(".m
     summary: String(parsed.data.summary || "").replace(/\s+/g, " ").trim(),
     topic: String(parsed.data.topic || "analysis"),
     service: String(parsed.data.related_service || "ai-data-flow-mapping"),
+    image: String(parsed.data.image || "").trim(),
     body: parsed.body,
   };
 }
@@ -55,7 +57,7 @@ function pageSettings(name) {
   return readJson(path.join(root, "content", "site-seo", `${name}.json`), {});
 }
 
-function cardsSection(postsForPage, eyebrow, heading, intro, summaryLimit = 0) {
+function cardsSection(postsForPage, eyebrow, heading, intro, summaryLimit = 0, showImages = false) {
   const cardSummary = (value) => {
     const text = String(value || "").trim();
     if (!summaryLimit || text.length <= summaryLimit) return text;
@@ -63,14 +65,31 @@ function cardsSection(postsForPage, eyebrow, heading, intro, summaryLimit = 0) {
     const shortened = text.slice(0, sliceEnd).replace(/\s+\S*$/, "").trim();
     return `${shortened || text.slice(0, sliceEnd).trim()}...`;
   };
-  const cards = postsForPage.map((post) => [
-    '<article class="card compact-card">',
-    `  <span class="badge">${escapeHtml(post.label || "Insight")}</span>`,
-    `  <h3>${escapeHtml(post.title)}</h3>`,
-    post.summary ? `  <p>${escapeHtml(cardSummary(post.summary))}</p>` : "",
-    `  <a href="${escapeHtml(post.url)}">Read insight</a>`,
-    "</article>",
-  ].filter(Boolean).join("\n")).join("\n");
+  const cards = postsForPage.map((post) => {
+    if (showImages) {
+      const previewImage = post.image || CARD_FALLBACK_IMAGE;
+      const fallbackClass = post.image ? "" : " card-media-fallback";
+      return [
+        '<article class="card compact-card insight-media-card">',
+        `  <img class="card-media${fallbackClass}" src="${escapeHtml(previewImage)}" alt="${post.image ? escapeHtml(post.title) : ""}" loading="lazy" decoding="async">`,
+        '  <div class="insight-media-card-body">',
+        `    <span class="badge">${escapeHtml(post.label || "Insight")}</span>`,
+        `    <h3>${escapeHtml(post.title)}</h3>`,
+        post.summary ? `    <p>${escapeHtml(cardSummary(post.summary))}</p>` : "",
+        `    <a href="${escapeHtml(post.url)}">Read insight</a>`,
+        "  </div>",
+        "</article>",
+      ].filter(Boolean).join("\n");
+    }
+    return [
+      '<article class="card compact-card">',
+      `  <span class="badge">${escapeHtml(post.label || "Insight")}</span>`,
+      `  <h3>${escapeHtml(post.title)}</h3>`,
+      post.summary ? `  <p>${escapeHtml(cardSummary(post.summary))}</p>` : "",
+      `  <a href="${escapeHtml(post.url)}">Read insight</a>`,
+      "</article>",
+    ].filter(Boolean).join("\n");
+  }).join("\n");
   return [
     '<section class="section section-tight related-insights-section">',
     '  <div class="container">',
@@ -97,7 +116,8 @@ const fixedPages = [
     file: "index.html", key: "homepage", block: "homepage-related-insights",
     eyebrow: "Latest Insights", heading: "Latest ControlPointAI analysis.",
     intro: "New work on AI data flows, authority, and accountable human review.",
-    summaryLimit: 145,
+    summaryLimit: 105,
+    showImages: true,
     preferredTopics: [], preferredService: "ai-data-flow-mapping",
   },
   {
@@ -125,7 +145,7 @@ for (const page of fixedPages) {
     preferredTopics: page.preferredTopics,
     preferredService: page.preferredService,
   });
-  const section = cardsSection(chosen, page.eyebrow, page.heading, page.intro, page.summaryLimit);
+  const section = cardsSection(chosen, page.eyebrow, page.heading, page.intro, page.summaryLimit, page.showImages);
   html = replaceGeneratedBlock(html, page.block, section, insertBeforeLastSection);
   fs.writeFileSync(file, html);
 }

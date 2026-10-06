@@ -10,7 +10,7 @@ const legacyPath = path.join(root, "insights", "post", "index.html");
 const manifestPath = path.join(root, "tmp", "insights-manifest.json");
 const SITE_URL = String(process.env.SITE_URL || "https://controlpointai.org").replace(/\/+$/, "");
 const DEFAULT_AUTHOR = "Wayne Couch";
-const DEFAULT_IMAGE = "/assets/images/uploads/newsletter-authority-engineering.jpg";
+const CARD_FALLBACK_IMAGE = "/assets/images/controlpointai-admin-logo-transparent.png";
 
 const INITIAL_SLUGS = {
   ai1: "why-faster-ai-needs-valid-authority",
@@ -242,7 +242,7 @@ function loadPosts() {
     const summary = String(data.summary || "").replace(/\s+/g," ").trim();
     const metaTitle = String(data.meta_title_mode) === "custom" && data.meta_title ? String(data.meta_title).trim() : (title.length + 17 <= 65 ? `${title} | ControlPointAI` : shorten(title,65));
     const description = String(data.meta_description_mode) === "custom" && data.meta_description ? String(data.meta_description).replace(/\s+/g," ").trim() : shorten(summary,160);
-    return { file,filePath,data,id,title,slug,label:String(data.label || `Issue ${data.order || ""}`).trim(),topic:String(data.topic || "analysis"),image:data.image === "" ? "" : String(data.image || DEFAULT_IMAGE),publishDate,updatedDate,summary,metaTitle,description,author:String(data.author || DEFAULT_AUTHOR),service:String(data.related_service || "ai-data-flow-mapping"),cta:String(data.cta || "request-data-flow-mapping"),sources:list(data.sources),bodyHtml:markdown(parsed.body,title),sort:publishDate ? new Date(publishDate).getTime() : Number(data.order || 0),canonical:`${SITE_URL}/insights/${slug}/`,showOnInsightsTab:String(data.insights_tab_visibility || "show") !== "hide",isPublished:published(data) };
+    return { file,filePath,data,id,title,slug,label:String(data.label || `Issue ${data.order || ""}`).trim(),topic:String(data.topic || "analysis"),image:String(data.image || "").trim(),publishDate,updatedDate,summary,metaTitle,description,author:String(data.author || DEFAULT_AUTHOR),service:String(data.related_service || "ai-data-flow-mapping"),cta:String(data.cta || "request-data-flow-mapping"),sources:list(data.sources),bodyHtml:markdown(parsed.body,title),sort:publishDate ? new Date(publishDate).getTime() : Number(data.order || 0),canonical:`${SITE_URL}/insights/${slug}/`,showOnInsightsTab:String(data.insights_tab_visibility || "show") !== "hide",isPublished:published(data) };
   }).filter(p => p.isPublished).sort((a,b) => a.sort-b.sort);
   const ids = new Set(), slugs = new Set();
   posts.forEach(p => { if (!p.slug || ids.has(p.id) || slugs.has(p.slug)) throw new Error(`Duplicate or missing Insight ID/slug: ${p.id}/${p.slug}`); if (!p.summary || !p.description) throw new Error(`${p.file} needs a summary`); ids.add(p.id); slugs.add(p.slug); p.oldSlugs = oldSlugs(p); });
@@ -250,7 +250,11 @@ function loadPosts() {
   return posts;
 }
 function archiveCards(posts) {
-  return posts.filter(p => p.showOnInsightsTab).sort((a,b)=>b.sort-a.sort).map(p => `<article class="card"><img class="card-media" src="${esc(p.image)}" alt=""><span class="badge">${esc(p.label)}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="actions"><a class="button ghost" href="/insights/${esc(p.slug)}/">Read ${esc(p.title)}</a></div></article>`).join("\n");
+  return posts.filter(p => p.showOnInsightsTab).sort((a,b)=>b.sort-a.sort).map(p => {
+    const previewImage = p.image || CARD_FALLBACK_IMAGE;
+    const fallbackClass = p.image ? "" : " card-media-fallback";
+    return `<article class="card"><img class="card-media${fallbackClass}" src="${esc(previewImage)}" alt=""><span class="badge">${esc(p.label)}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary)}</p><div class="actions"><a class="button ghost" href="/insights/${esc(p.slug)}/">Read ${esc(p.title)}</a></div></article>`;
+  }).join("\n");
 }
 function updateArchive(posts) {
   let html = fs.readFileSync(archivePath,"utf8");
@@ -272,7 +276,7 @@ function writeOutputs(posts) {
     const page = path.join(root,"insights",p.slug,"index.html"); fs.mkdirSync(path.dirname(page),{recursive:true}); fs.writeFileSync(page,articlePage(p,related(p,posts)));
     p.oldSlugs.forEach(slug => { const old = path.join(root,"insights",slug,"index.html"); fs.mkdirSync(path.dirname(old),{recursive:true}); fs.writeFileSync(old,redirectPage(p)); });
   });
-  const tracks = posts.filter(p => p.showOnInsightsTab).map(p => ({id:p.id,order:p.sort,label:p.label,title:p.title,topic:p.topic,url:`insights/${p.slug}/`,image:p.image,publishDate:p.publishDate,summary:p.summary,sections:[{heading:"Core Argument",body:p.summary}]}));
+  const tracks = posts.filter(p => p.showOnInsightsTab).map(p => ({id:p.id,order:p.sort,label:p.label,title:p.title,topic:p.topic,url:`insights/${p.slug}/`,image:p.image,previewImage:p.image || CARD_FALLBACK_IMAGE,publishDate:p.publishDate,summary:p.summary,sections:[{heading:"Core Argument",body:p.summary}]}));
   fs.mkdirSync(path.dirname(dataPath),{recursive:true}); fs.writeFileSync(dataPath,`// Generated from content/insights/*.md\nwindow.insightTracks=${JSON.stringify(tracks,null,2)};\nvar newsletterBodies={};\n`);
   fs.mkdirSync(path.dirname(manifestPath),{recursive:true}); fs.writeFileSync(manifestPath,JSON.stringify(posts.map(p => ({id:p.id,slug:p.slug,url:`/insights/${p.slug}/`,canonical:p.canonical,title:p.title,metaTitle:p.metaTitle,publishDate:p.publishDate,updatedDate:p.updatedDate,showOnInsightsTab:p.showOnInsightsTab,redirectSlugs:p.oldSlugs})),null,2)+"\n");
   const issueRoutes = Object.fromEntries(posts.map(p => [p.id,`/insights/${p.slug}/`]));

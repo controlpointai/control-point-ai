@@ -8,6 +8,7 @@ window.insightTracks=[
     "topic": "runtime",
     "url": "insights/why-faster-ai-needs-valid-authority/",
     "image": "/assets/images/uploads/newsletter-ai1.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai1.jpg",
     "publishDate": "2026-02-01T14:00:00.000Z",
     "summary": "Introduces the central ControlPointAI concern: AI can move quickly, but consequential work still depends on valid authority at the point of execution.",
     "sections": [
@@ -25,6 +26,7 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/when-ai-moves-faster/",
     "image": "/assets/images/uploads/newsletter-ai2.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai2.jpg",
     "publishDate": "2026-02-13T14:00:00.000Z",
     "summary": "Frames the gap between technology, governance, and operations when AI-assisted work accelerates beyond traditional review cycles.",
     "sections": [
@@ -42,6 +44,7 @@ window.insightTracks=[
     "topic": "analysis",
     "url": "insights/technology-is-moving-faster-than-authority/",
     "image": "/assets/images/uploads/newsletter-ai3.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai3.jpg",
     "publishDate": "2026-03-01T14:00:00.000Z",
     "summary": "Explores why governance has to account for delegation, consequence boundaries, accountability chains, revocation, and override.",
     "sections": [
@@ -59,6 +62,7 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/from-algorithms-to-authority/",
     "image": "/assets/images/uploads/newsletter-ai4.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai4.jpg",
     "publishDate": "2026-03-15T13:00:00.000Z",
     "summary": "Positions Authority Engineering as the bridge between AI capability, governance intent, and operational execution.",
     "sections": [
@@ -76,6 +80,7 @@ window.insightTracks=[
     "topic": "runtime",
     "url": "insights/when-authority-breaks-at-machine-speed/",
     "image": "/assets/images/uploads/newsletter-ai5.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai5.jpg",
     "publishDate": "2026-04-01T13:00:00.000Z",
     "summary": "Presents the HCAI / Control Point AI framework as an execution-bound loop for defining, constraining, monitoring, auditing, and refining authority.",
     "sections": [
@@ -93,6 +98,7 @@ window.insightTracks=[
     "topic": "runtime",
     "url": "insights/authority-gap-at-execution/",
     "image": "/assets/images/uploads/newsletter-ai6.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai6.jpg",
     "publishDate": "2026-04-15T13:00:00.000Z",
     "summary": "Shows how a defined authority model can still fail when invalid authority is allowed to execute without a live control point.",
     "sections": [
@@ -110,6 +116,7 @@ window.insightTracks=[
     "topic": "runtime",
     "url": "insights/closing-the-authority-gap-at-execution/",
     "image": "/assets/images/uploads/newsletter-ai7.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai7.jpg",
     "publishDate": "2026-05-01T13:00:00.000Z",
     "summary": "Maps the Control Point AI idea across model outputs, agents, governance layers, policy, dashboards, and audit evidence.",
     "sections": [
@@ -127,6 +134,7 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/the-control-point/",
     "image": "/assets/images/uploads/newsletter-ai8.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai8.jpg",
     "publishDate": "2026-05-15T13:00:00.000Z",
     "summary": "Defines the control point as the moment where authority, governance, and system behavior must be checked before AI can act.",
     "sections": [
@@ -144,6 +152,7 @@ window.insightTracks=[
     "topic": "analysis",
     "url": "insights/the-execution-authority-gap/",
     "image": "/assets/images/uploads/newsletter-ai9.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai9.jpg",
     "publishDate": "2026-05-22T13:00:00.000Z",
     "summary": "The key reference for Data Flow Mapping: explains how AI-generated work can propagate through connected systems before authority is validated.",
     "sections": [
@@ -161,6 +170,7 @@ window.insightTracks=[
     "topic": "interface",
     "url": "insights/six-months-of-watching-ai/",
     "image": "/assets/images/uploads/newsletter-ai10.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-ai10.jpg",
     "publishDate": "2026-06-01T13:00:00.000Z",
     "summary": "A reflective issue on what ControlPointAI observed while watching AI systems move from early exploration toward governance and product reality.",
     "sections": [
@@ -178,6 +188,7 @@ window.insightTracks=[
     "topic": "analysis",
     "url": "insights/unauthorized-concept-drift-during-ai-analysis/",
     "image": "/assets/images/uploads/newsletter-aics1.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-aics1.jpg",
     "publishDate": "2026-06-10T13:00:00.000Z",
     "summary": "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis.",
     "sections": [
@@ -195,6 +206,7 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/foundation-of-controlpointai/",
     "image": "/assets/images/uploads/newsletter-authority-engineering.jpg",
+    "previewImage": "/assets/images/uploads/newsletter-authority-engineering.jpg",
     "publishDate": "2026-06-30T23:19:00.000Z",
     "summary": "ControlPointAI was founded on one simple observation: technology is moving faster than authority. This article introduces our mission, our vision, and why clear human accountability remains essential as organizations adopt artificial intelligence.",
     "sections": [
@@ -212,6 +224,7 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/data-flow-mapping-foundation-of-ai-governance/",
     "image": "/assets/images/uploads/article-2-graphic.jpg",
+    "previewImage": "/assets/images/uploads/article-2-graphic.jpg",
     "publishDate": "2026-07-06T10:18:00.000Z",
     "summary": "AI governance begins long before policies and compliance. It begins with understanding how information, decisions, and authority move through an organization. This article introduces data flow mapping as the operational foundation of effective AI governance.",
     "sections": [
@@ -229,29 +242,13 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/ai-governance-as-built-baseline/",
     "image": "/assets/images/uploads/article-3-image.png",
+    "previewImage": "/assets/images/uploads/article-3-image.png",
     "publishDate": "2026-08-01T09:11:00.000Z",
     "summary": "AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be maintained as a controlled as-built baseline that reflects the system actually operating.",
     "sections": [
       {
         "heading": "Core Argument",
         "body": "AI governance depends on more than an initial system map. This article explains why data flows, authority paths, control points, and operational changes must be maintained as a controlled as-built baseline that reflects the system actually operating."
-      }
-    ]
-  },
-  {
-    "id": "dfm-standard-v01",
-    "order": 1786226340000,
-    "label": "standard",
-    "title": "ControlPointAI Data-Flow Mapping Standard — Version 0.1",
-    "topic": "runtime",
-    "url": "insights/data-flow-mapping-standard-v01/",
-    "image": "",
-    "publishDate": "2026-08-08T21:59:00.000Z",
-    "summary": "ControlPointAI Version 0.1 establishes the initial controlled standard for mapping AI-enabled data flows, system boundaries, authority, control points, evidence, and configuration-controlled engineering drawings.",
-    "sections": [
-      {
-        "heading": "Core Argument",
-        "body": "ControlPointAI Version 0.1 establishes the initial controlled standard for mapping AI-enabled data flows, system boundaries, authority, control points, evidence, and configuration-controlled engineering drawings."
       }
     ]
   },
@@ -263,6 +260,7 @@ window.insightTracks=[
     "topic": "runtime",
     "url": "insights/piping-ut-demonstration-project-launch/",
     "image": "/assets/images/uploads/announcement-image.png",
+    "previewImage": "/assets/images/uploads/announcement-image.png",
     "publishDate": "2026-08-28T11:50:00.000Z",
     "summary": "ControlPointAI launches a fictionalized submarine piping UT demonstration to test AI-assisted inspection analysis, human technical authority, runtime revalidation, and traceable engineering decision-making.",
     "sections": [
@@ -280,6 +278,7 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/observation-to-demonstration-ai-control/",
     "image": "/assets/images/uploads/chatgpt-image-sep-3-2026-11_15_57-am.png",
+    "previewImage": "/assets/images/uploads/chatgpt-image-sep-3-2026-11_15_57-am.png",
     "publishDate": "2026-09-04T00:03:00.000Z",
     "summary": "ControlPointAI’s first monthly newsletter examines the shift from observing AI governance problems to testing operational controls in practice. It explores authority, evidence, human judgment, and the Piping UT Demonstration as a real-world test of whether AI controls actually work when decisions matter.",
     "sections": [
@@ -297,12 +296,31 @@ window.insightTracks=[
     "topic": "operations",
     "url": "insights/ai-is-not-the-strategy-keeping-humans-in-control/",
     "image": "/assets/images/uploads/chatgpt-image-sep-29-2026-05_43_35-pm.png",
+    "previewImage": "/assets/images/uploads/chatgpt-image-sep-29-2026-05_43_35-pm.png",
     "publishDate": "2026-09-29T22:33:00.000Z",
     "summary": "ControlPointAI examines the growing divide between AI’s extraordinary promise and its potential risks—and why both make human control essential. This month’s issue connects lessons from the Piping UT Demonstration with our new EU AI Act work to explore how data flows, decision authority, evidence, and meaningful human oversight can be engineered into real operational processes.",
     "sections": [
       {
         "heading": "Core Argument",
         "body": "ControlPointAI examines the growing divide between AI’s extraordinary promise and its potential risks—and why both make human control essential. This month’s issue connects lessons from the Piping UT Demonstration with our new EU AI Act work to explore how data flows, decision authority, evidence, and meaningful human oversight can be engineered into real operational processes."
+      }
+    ]
+  },
+  {
+    "id": "dfm-standard-v01",
+    "order": 1791286620000,
+    "label": "standard",
+    "title": "ControlPointAI Data-Flow Mapping Standard — Version 2.0",
+    "topic": "runtime",
+    "url": "insights/data-flow-mapping-standard-v01/",
+    "image": "",
+    "previewImage": "/assets/images/controlpointai-admin-logo-transparent.png",
+    "publishDate": "2026-10-06T11:37:00.000Z",
+    "summary": "ControlPointAI’s Data-Flow Mapping Standard Version 2.0 establishes consistent conventions for reading, assessing, and using our drawings—making information flows, system boundaries, human authority, control points, and supporting evidence clear and traceable.",
+    "sections": [
+      {
+        "heading": "Core Argument",
+        "body": "ControlPointAI’s Data-Flow Mapping Standard Version 2.0 establishes consistent conventions for reading, assessing, and using our drawings—making information flows, system boundaries, human authority, control points, and supporting evidence clear and traceable."
       }
     ]
   }

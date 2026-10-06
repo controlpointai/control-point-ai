@@ -150,7 +150,8 @@ const posts = fs
       title: data.title || id,
       topic: data.topic || "analysis",
       url: `insights/post/index.html?issue=${id}`,
-      image: data.image || "assets/images/newsletter-authority-engineering.jpg",
+      image: data.image || "",
+      previewImage: data.image || "assets/images/controlpointai-admin-logo-transparent.png",
       publishDate: normalizeDate(data.publish_date),
       summary: data.summary || "",
       sections: [

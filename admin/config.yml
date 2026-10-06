@@ -48,7 +48,7 @@ collections:
           - { label: "Operations", value: "operations" }
           - { label: "Analysis", value: "analysis" }
           - { label: "Interface", value: "interface" }
-      - { label: "Featured Image", name: "image", widget: "image", required: false, default: "/assets/images/uploads/newsletter-authority-engineering.jpg", hint: "Upload or select an image here. The editor preview shows the selected file immediately; the public URL updates after the automatic deployment finishes." }
+      - { label: "Featured Image (Optional)", name: "image", widget: "image", required: false, hint: "Optional. If omitted, the article has no hero image and preview cards use the ControlPointAI logo. The editor preview shows a selected file immediately; the public URL updates after deployment finishes." }
       - { label: "Summary", name: "summary", widget: "text", hint: "Buyer-facing archive summary. Keep this concise." }
       - { label: "Body", name: "body", widget: "markdown" }
 
