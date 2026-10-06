@@ -3,13 +3,14 @@ id: dfm-standard-v01
 order: 12
 label: standard
 title: ControlPointAI Data-Flow Mapping Standard — Version 2.0
-publish_date: 2026-08-08T17:59:00.000-04:00
+publish_date: 2026-10-06T07:37:00.000-04:00
 insights_tab_visibility: show
 topic: runtime
 image: ""
-summary: ControlPointAI Version 0.1 establishes the initial controlled standard
-  for mapping AI-enabled data flows, system boundaries, authority, control
-  points, evidence, and configuration-controlled engineering drawings.
+summary: ControlPointAI’s Data-Flow Mapping Standard Version 2.0 establishes
+  consistent conventions for reading, assessing, and using our drawings—making
+  information flows, system boundaries, human authority, control points, and
+  supporting evidence clear and traceable.
 author: Wayne Couch
 slug_mode: automatic
 meta_title_mode: automatic
@@ -19,9 +20,9 @@ cta: request-data-flow-mapping
 ---
 # ControlPointAI Data-Flow Mapping Standard
 
-**Version:** 0.1  
-**Status:** Controlled Draft  
-**Issued:** August 8, 2026  
+**Version:** 2.0
+**Status:** Approved
+**Issued:** October 6, 2026  
 **POAM Item:** 2-1  
 **Applies to:** Phase 2 Prototype Engineering Package  
 **Owner:** ControlPointAI
@@ -30,7 +31,7 @@ cta: request-data-flow-mapping
 
 ## 1. Purpose
 
-This standard defines the minimum conventions for creating ControlPointAI data-flow mapping products. It establishes a repeatable engineering method for showing how data, AI-generated work, decisions, authority, execution, and evidence move through an operational system.
+This public standard defines the conventions for reading, assessing, and using ControlPointAI data-flow mapping products. It establishes consistent expectations for showing how information, AI analysis outputs, decisions, human authority, execution, and evidence relate within the mapped operational scope
 
 The standard is intended to make ControlPointAI drawings understandable, traceable, configuration-controlled, and suitable for later comparison between the approved design, the as-built configuration, and the as-executed operating path.
 
