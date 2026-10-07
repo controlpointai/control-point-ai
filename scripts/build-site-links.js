@@ -124,6 +124,8 @@ const fixedPages = [
     file: "services/index.html", key: "services", block: "services-related-insights",
     eyebrow: "Related Insights", heading: "The thinking behind the mapping work.",
     intro: "These articles explain the execution-flow and authority problems the services are designed to address.",
+    summaryLimit: 105,
+    showImages: true,
     preferredTopics: ["operations", "runtime"], preferredService: "ai-data-flow-mapping",
   },
   {
