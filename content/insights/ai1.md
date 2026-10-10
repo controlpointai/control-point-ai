@@ -1,12 +1,21 @@
 ---
-id: "ai1"
+id: ai1
 order: 1
-label: "Issue 1"
-title: "Why Faster AI Doesn't Matter If Authority Is Still Slow"
-publish_date: "2026-02-01T09:00:00-05:00"
-topic: "runtime"
-image: "/assets/images/uploads/newsletter-ai1.jpg"
-summary: "Introduces the central ControlPointAI concern: AI can move quickly, but consequential work still depends on valid authority at the point of execution."
+label: Issue 1
+title: Why Faster AI Doesn't Matter If Authority Is Still Slow
+publish_date: 2026-02-01T09:00:00-05:00
+insights_tab_visibility: hide
+topic: runtime
+image: /assets/images/uploads/newsletter-ai1.jpg
+summary: "Introduces the central ControlPointAI concern: AI can move quickly,
+  but consequential work still depends on valid authority at the point of
+  execution."
+author: Wayne Couch
+slug_mode: automatic
+meta_title_mode: automatic
+meta_description_mode: automatic
+related_service: ai-data-flow-mapping
+cta: request-data-flow-mapping
 ---
 
 A short field note on integrating AI into real systems without losing human judgment, accountability, or operational control.
