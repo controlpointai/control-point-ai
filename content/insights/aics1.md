@@ -1,12 +1,20 @@
 ---
-id: "aics1"
+id: aics1
 order: 9.5
-label: "Case Study 001"
-title: "Unauthorized Concept Drift During AI Analysis"
-publish_date: "2026-06-10T09:00:00-04:00"
-topic: "analysis"
-image: "/assets/images/uploads/newsletter-aics1.jpg"
-summary: "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis."
+label: Case Study 001
+title: Unauthorized Concept Drift During AI Analysis
+publish_date: 2026-06-10T09:00:00-04:00
+insights_tab_visibility: hide
+topic: analysis
+image: /assets/images/uploads/newsletter-aics1.jpg
+summary: A case-study entry point into how terms, frameworks, and assumptions
+  can drift away from approved authority during AI-supported analysis.
+author: Wayne Couch
+slug_mode: automatic
+meta_title_mode: automatic
+meta_description_mode: automatic
+related_service: ai-data-flow-mapping
+cta: request-data-flow-mapping
 ---
 A real-world example of governance drift occurring within an AI analytical process.
 
