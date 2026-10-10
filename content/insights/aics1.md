@@ -4,7 +4,7 @@ order: 9.5
 label: Case Study 001
 title: Unauthorized Concept Drift During AI Analysis
 publish_date: 2026-06-10T09:00:00-04:00
-insights_tab_visibility: hide
+insights_tab_visibility: show
 topic: analysis
 image: /assets/images/uploads/newsletter-aics1.jpg
 summary: A case-study entry point into how terms, frameworks, and assumptions
