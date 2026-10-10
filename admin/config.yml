@@ -7,7 +7,6 @@ backend:
 
 local_backend: true
 
-publish_mode: editorial_workflow
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
@@ -160,10 +159,10 @@ collections:
         name: "status"
         widget: "select"
         default: "featured"
-        hint: "This is separate from Decap's Unpublished Entries workflow. After you click Publish, Featured appears on the public Case Studies tab; Draft keeps the direct page available but hides it from the index."
+        hint: "Choose Hidden or Archived, then click Publish. The card disappears from the public Case Studies tab after deployment, while its direct page remains available."
         options:
-          - { label: "Featured - show on Case Studies tab", value: "featured" }
-          - { label: "Draft - hide from Case Studies tab", value: "draft" }
+          - { label: "Visible - show on Case Studies tab", value: "featured" }
+          - { label: "Hidden - remove from Case Studies tab", value: "draft" }
           - { label: "Archived - hide from Case Studies tab", value: "archived" }
       - { label: "Summary", name: "summary", widget: "text" }
       - { label: "SEO Title", name: "meta_title", widget: "string", required: false, hint: "Optional browser/search title. Defaults to the case-study title." }

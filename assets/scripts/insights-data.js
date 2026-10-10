@@ -1,42 +1,6 @@
 // Generated from content/insights/*.md
 window.insightTracks=[
   {
-    "id": "ai1",
-    "order": 1769954400000,
-    "label": "Issue 1",
-    "title": "Why Faster AI Doesn't Matter If Authority Is Still Slow",
-    "topic": "runtime",
-    "url": "insights/why-faster-ai-needs-valid-authority/",
-    "image": "/assets/images/uploads/newsletter-ai1.jpg",
-    "previewImage": "/assets/images/uploads/newsletter-ai1.jpg",
-    "publishDate": "2026-02-01T14:00:00.000Z",
-    "summary": "Introduces the central ControlPointAI concern: AI can move quickly, but consequential work still depends on valid authority at the point of execution.",
-    "sections": [
-      {
-        "heading": "Core Argument",
-        "body": "Introduces the central ControlPointAI concern: AI can move quickly, but consequential work still depends on valid authority at the point of execution."
-      }
-    ]
-  },
-  {
-    "id": "ai2",
-    "order": 1770991200000,
-    "label": "Issue 2",
-    "title": "When AI Moves Faster",
-    "topic": "operations",
-    "url": "insights/when-ai-moves-faster/",
-    "image": "/assets/images/uploads/newsletter-ai2.jpg",
-    "previewImage": "/assets/images/uploads/newsletter-ai2.jpg",
-    "publishDate": "2026-02-13T14:00:00.000Z",
-    "summary": "Frames the gap between technology, governance, and operations when AI-assisted work accelerates beyond traditional review cycles.",
-    "sections": [
-      {
-        "heading": "Core Argument",
-        "body": "Frames the gap between technology, governance, and operations when AI-assisted work accelerates beyond traditional review cycles."
-      }
-    ]
-  },
-  {
     "id": "ai3",
     "order": 1772373600000,
     "label": "Issue 3",
@@ -177,24 +141,6 @@ window.insightTracks=[
       {
         "heading": "Core Argument",
         "body": "A reflective issue on what ControlPointAI observed while watching AI systems move from early exploration toward governance and product reality."
-      }
-    ]
-  },
-  {
-    "id": "aics1",
-    "order": 1781096400000,
-    "label": "Case Study 001",
-    "title": "Unauthorized Concept Drift During AI Analysis",
-    "topic": "analysis",
-    "url": "insights/unauthorized-concept-drift-during-ai-analysis/",
-    "image": "/assets/images/uploads/newsletter-aics1.jpg",
-    "previewImage": "/assets/images/uploads/newsletter-aics1.jpg",
-    "publishDate": "2026-06-10T13:00:00.000Z",
-    "summary": "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis.",
-    "sections": [
-      {
-        "heading": "Core Argument",
-        "body": "A case-study entry point into how terms, frameworks, and assumptions can drift away from approved authority during AI-supported analysis."
       }
     ]
   },

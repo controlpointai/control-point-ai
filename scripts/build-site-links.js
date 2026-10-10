@@ -132,6 +132,8 @@ const fixedPages = [
     file: "mission/index.html", key: "method", block: "method-related-insights",
     eyebrow: "Explore the Method", heading: "Read the method in greater depth.",
     intro: "Follow the development of execution-bound authority, Control Points, and traceable operating baselines.",
+    summaryLimit: 105,
+    showImages: true,
     preferredTopics: ["runtime", "analysis"], preferredService: "",
   },
 ];

@@ -43,9 +43,11 @@ const caseStudies = collectionBlock("case_studies");
 ok(/media_folder:\s*["']assets\/images\/uploads["']/.test(config), "CMS media folder changed unexpectedly");
 ok(/public_folder:\s*["']\/assets\/images\/uploads["']/.test(config), "CMS public media folder changed unexpectedly");
 ok(/site_url:\s*["']https:\/\/controlpointai\.org["']/.test(config), "CMS site URL must use the production domain");
+ok(!/publish_mode:\s*editorial_workflow/.test(config), "CMS must publish directly to main instead of leaving content in editorial pull requests");
 ok(/\n\s+delete:\s+false\b/.test(insights), "Insight deletion must stay disabled in the CMS");
 ok(/name:\s*["']insights_tab_visibility["']/.test(insights), "Insight tab visibility control is missing from the CMS");
 ok(/\n\s+delete:\s+false\b/.test(caseStudies), "Case-study deletion must stay disabled in the CMS");
+ok(/name:\s*["']status["']/.test(caseStudies), "Case-study index visibility control is missing from the CMS");
 ok(admin.includes('CMS.registerPreviewTemplate("insights", insightPreview)'), "Insight preview template is not registered");
 ok(admin.includes("props.getAsset(imagePath)"), "Insight preview must use Decap's in-memory uploaded asset");
 

@@ -1,7 +1,7 @@
 ---
 title: "RX Maintenance Case Study"
 live_path: runtime-authority-enforcement
-status: featured
+status: archived
 order: 2
 layout: report
 eyebrow: "Operational Governance"
