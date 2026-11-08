@@ -58,7 +58,7 @@ The drawing provides a tangible engineering example of how these responsibilitie
 
 **CP-UT-DFD-001, Revision A — Piping UT Demonstration (Three Sheets)**
 
-Revision A was approved on November 8, 2026, and supersedes Revision –.
+Revision A was approved on November 8, 2026, and supersedes Revision –. 
 
 [View the three-sheet engineering drawing — Revision A](/assets/images/uploads/cp-ut-dfd-001_rev_a.pdf)
 
