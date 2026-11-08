@@ -60,6 +60,6 @@ The drawing provides a tangible engineering example of how these responsibilitie
 
 Revision A was approved on November 8, 2026, and supersedes Revision –.
 
-[View the original engineering drawing release](https://controlpointai.org/insights/piping-ut-demonstration-engineering-drawing-release/) for historical reference.
+[View the three-sheet engineering drawing — Revision A](/assets/images/uploads/cp-ut-dfd-001_rev_a.pdf)
 
 **ControlPointAI — Beyond the code.**
