@@ -269,6 +269,60 @@ window.insightTracks=[
         "body": "ControlPointAI’s Data-Flow Mapping Standard Version 2.0 establishes consistent conventions for reading, assessing, and using our drawings—making information flows, system boundaries, human authority, control points, and supporting evidence clear and traceable."
       }
     ]
+  },
+  {
+    "id": "ut-update-2",
+    "order": 1791713820000,
+    "label": "Project Update 2",
+    "title": "Piping UT Demonstration — Engineering Drawing Release",
+    "topic": "runtime",
+    "url": "insights/piping-ut-demonstration-engineering-drawing-release/",
+    "image": "/assets/images/uploads/announcement-image.png",
+    "previewImage": "/assets/images/uploads/announcement-image.png",
+    "publishDate": "2026-10-11T10:17:00.000Z",
+    "summary": "ControlPointAI releases CP-UT-DFD-001, a two-sheet engineering drawing demonstrating AI-assisted information flow, evidence verification, and human technical authority within a controlled piping ultrasonic testing process.",
+    "sections": [
+      {
+        "heading": "Core Argument",
+        "body": "ControlPointAI releases CP-UT-DFD-001, a two-sheet engineering drawing demonstrating AI-assisted information flow, evidence verification, and human technical authority within a controlled piping ultrasonic testing process."
+      }
+    ]
+  },
+  {
+    "id": "monthly03",
+    "order": 1793366580000,
+    "label": "Monthly Newsletter - November 2026",
+    "title": "Common Sense Isn’t Always Common Practice – Especially in the AI world",
+    "topic": "operations",
+    "url": "insights/common-sense-isnt-always-common-practice-especially-in-the-ai-world/",
+    "image": "/assets/images/uploads/human-review-meets-ai-control.png",
+    "previewImage": "/assets/images/uploads/human-review-meets-ai-control.png",
+    "publishDate": "2026-10-30T13:23:00.000Z",
+    "summary": "November’s ControlPointAI newsletter connects practical lessons from engineering and contract oversight to AI governance, explains the evolution of our mission and vision, and reports progress on our piping UT and EU AI Act hiring demonstrations. You can delegate the analysis. You cannot delegate the accountability.",
+    "sections": [
+      {
+        "heading": "Core Argument",
+        "body": "November’s ControlPointAI newsletter connects practical lessons from engineering and contract oversight to AI governance, explains the evolution of our mission and vision, and reports progress on our piping UT and EU AI Act hiring demonstrations. You can delegate the analysis. You cannot delegate the accountability."
+      }
+    ]
+  },
+  {
+    "id": "ut-update-3",
+    "order": 1794137580000,
+    "label": "Project Update 3",
+    "title": "Piping UT Demonstration — Engineering Drawing Release, Revision A",
+    "topic": "runtime",
+    "url": "insights/piping-ut-demonstration-engineering-drawing-release-revision-a/",
+    "image": "/assets/images/uploads/announcement-image.png",
+    "previewImage": "/assets/images/uploads/announcement-image.png",
+    "publishDate": "2026-11-08T11:33:00.000Z",
+    "summary": "ControlPointAI releases Revision A of CP-UT-DFD-001, adding an applicable-document revision index to the engineering drawing demonstrating AI-assisted information flow, evidence verification, and human technical authority within a controlled piping ultrasonic testing process.",
+    "sections": [
+      {
+        "heading": "Core Argument",
+        "body": "ControlPointAI releases Revision A of CP-UT-DFD-001, adding an applicable-document revision index to the engineering drawing demonstrating AI-assisted information flow, evidence verification, and human technical authority within a controlled piping ultrasonic testing process."
+      }
+    ]
   }
 ];
 var newsletterBodies={};

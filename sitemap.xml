@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://controlpointai.org/case-studies/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://controlpointai.org/case-studies/piping-ut-demonstration-project/</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://controlpointai.org/insights/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://controlpointai.org/insights/ai-governance-as-built-baseline/</loc>
@@ -39,6 +39,10 @@
   <url>
     <loc>https://controlpointai.org/insights/closing-the-authority-gap-at-execution/</loc>
     <lastmod>2026-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://controlpointai.org/insights/common-sense-isnt-always-common-practice-especially-in-the-ai-world/</loc>
+    <lastmod>2026-10-30</lastmod>
   </url>
   <url>
     <loc>https://controlpointai.org/insights/data-flow-mapping-foundation-of-ai-governance/</loc>
@@ -59,6 +63,14 @@
   <url>
     <loc>https://controlpointai.org/insights/observation-to-demonstration-ai-control/</loc>
     <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
+    <loc>https://controlpointai.org/insights/piping-ut-demonstration-engineering-drawing-release-revision-a/</loc>
+    <lastmod>2026-11-08</lastmod>
+  </url>
+  <url>
+    <loc>https://controlpointai.org/insights/piping-ut-demonstration-engineering-drawing-release/</loc>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://controlpointai.org/insights/piping-ut-demonstration-project-launch/</loc>
@@ -98,10 +110,10 @@
   </url>
   <url>
     <loc>https://controlpointai.org/mission/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://controlpointai.org/services/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
 </urlset>

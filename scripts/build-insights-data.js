@@ -46,12 +46,23 @@ function escapeHTML(value) {
     .replace(/'/g, "&#039;");
 }
 
-function inlineMarkdown(value) {
+function inlineText(value) {
   return escapeHTML(value)
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+function inlineMarkdown(value) {
+  const tokens = [];
+  const protect = (html) => {
+    const index = tokens.push(html) - 1;
+    return `\uE000${index}\uE001`;
+  };
+  const protectedSource = String(value ?? "")
+    .replace(/`([^`]+)`/g, (_match, code) => protect(`<code>${escapeHTML(code)}</code>`))
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_match, alt, url) => protect(`<img src="${escapeHTML(url)}" alt="${escapeHTML(alt)}">`))
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, url) => protect(`<a href="${escapeHTML(url)}">${inlineText(label)}</a>`));
+  return inlineText(protectedSource).replace(/\uE000(\d+)\uE001/g, (_match, index) => tokens[Number(index)] || "");
 }
 
 function markdownToHtml(markdown) {

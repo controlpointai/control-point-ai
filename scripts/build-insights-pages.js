@@ -77,15 +77,24 @@ function frontMatter(raw, file) {
 const list = (v) => Array.isArray(v) ? v.map(String).map(x => x.trim()).filter(Boolean) : (v ? String(v).split(",").map(x => x.trim()).filter(Boolean) : []);
 const esc = (v) => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
 const safeHref = (v) => /^(https?:\/\/|mailto:|\/|#)/i.test(String(v || "").trim()) ? String(v).trim() : "#";
-function inline(v) {
+function inlineText(v) {
   return esc(v)
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_m, alt, url) => `<img src="${esc(safeHref(url.replace(/&amp;/g, "&")))}" alt="${alt}">`)
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, url) => `<a href="${esc(safeHref(url.replace(/&amp;/g, "&")))}">${label}</a>`)
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/__([^_]+)__/g, "<strong>$1</strong>")
     .replace(/\*([^*]+)\*/g, "<em>$1</em>")
     .replace(/_([^_]+)_/g, "<em>$1</em>");
+}
+function inline(v) {
+  const tokens = [];
+  const protect = (html) => {
+    const index = tokens.push(html) - 1;
+    return `\uE000${index}\uE001`;
+  };
+  const protectedSource = String(v ?? "")
+    .replace(/`([^`]+)`/g, (_m, code) => protect(`<code>${esc(code)}</code>`))
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_m, alt, url) => protect(`<img src="${esc(safeHref(url))}" alt="${esc(alt)}">`))
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, url) => protect(`<a href="${esc(safeHref(url))}">${inlineText(label)}</a>`));
+  return inlineText(protectedSource).replace(/\uE000(\d+)\uE001/g, (_m, index) => tokens[Number(index)] || "");
 }
 function markdown(md, title) {
   const out = [];
