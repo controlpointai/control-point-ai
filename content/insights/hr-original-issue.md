@@ -34,6 +34,6 @@ The drawing also includes a planned **Delta-T verification case**. Here the AI f
 
 **CP-HR-DFD-001, Revision Orig — EU AI Assisted Hiring  Demonstration (Three Sheets)**
 
-[View the three-sheet engineering drawing — Revision A](/assets/images/uploads/cp-hr-dfd 001_rev_dash_issued.pdf)
+[View the three-sheet engineering drawing — Revision orig](/assets/images/uploads/cp-hr-dfd-001_rev_dash_issued.pdf)
 
 **ControlPointAI — Beyond the code.**
